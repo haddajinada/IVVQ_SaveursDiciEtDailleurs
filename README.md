@@ -8,7 +8,7 @@ IVVQ_SaveursDiciEtDailleurs
         ajout/suppression de membres
 
     la gestion des posts :
-        chaque membre peut poster une recette ou une vidéo tutorielle.
+        chaque  membre peut poster une recette ou une vidéo tutorielle.
         une vidéo ou recette peut être retirée du site par le membre qui l’a postée ou les administrateurs.
         chaque membre peut ajouter des commentaires sur le post d’un autre. 
 
