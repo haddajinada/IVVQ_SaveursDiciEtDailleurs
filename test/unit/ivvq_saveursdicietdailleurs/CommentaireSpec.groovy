@@ -20,20 +20,13 @@ import spock.lang.Specification
  */
 @TestFor(Commentaire)
 class CommentaireSpec extends Specification {
-	
+
 	def setup() {
-		System.out.println("debut de test");
 	}
 
 	def cleanup() {
-		System.out.println("fin de test");
 	}
 
-	void "test attributs Commentaire"() {
-		expect:
-			 new Commentaire(idCommentaire : idCom, corpsCommentaire : corpsCom, postCommentaire : postCom)
-		where:
-		idCom | corpsCom | postCom
-		2     | "test"   | new Post(idPost : 1, intitule : "titré", message : "post1", auteurPost : new Membre(idMembre : "1", pseudo : "toto", mdp : "123456", prenom : "nada", nom : "kfita", adresse_mail : "kjnjn@jhhk.fr"))
+	void "test something"() {
 	}
 }
