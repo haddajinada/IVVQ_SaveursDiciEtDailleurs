@@ -1,3 +1,7 @@
+import ivvq_saveursdicietdailleurs.Commentaire
+import ivvq_saveursdicietdailleurs.Membre
+import ivvq_saveursdicietdailleurs.Post
+
 /*******************************************************************************
  * Saveurs d’ici et d’ailleurs allows foodies to share recipes and cooking tips from around the globe.
  * Copyright (C) 2012 Anna CEJALVO - Nada HADDAJI KFITA - Ahou Melaine KOFFI - Marième TOURE
@@ -10,8 +14,63 @@
  ******************************************************************************/
 class BootStrap {
 
-    def init = { servletContext ->
-    }
-    def destroy = {
-    }
-}
+ 	def init = { servletContext ->
+
+		Membre membre1 = new Membre(idMembre : "1", pseudo : "toto", mdp : "123456", prenom : "nado", nom : "nom1", adresse_mail : "nsdkjb@ds.fr")
+		Membre membre2 = new Membre(idMembre : "2", pseudo : "tata", mdp : "123456", prenom : "nada", nom : "nom2", adresse_mail : "nsdkjb@ds.fr")
+		Membre membre3 = new Membre(idMembre : "3", pseudo : "titi", mdp : "123456", prenom : "nadi", nom : "nom3", adresse_mail : "nsdkjb@ds.fr")
+		if (!membre1.save()){
+			membre1.errors.allErrors.each{error -> println error}
+		}
+		if (!membre2.save()){
+			membre2.errors.allErrors.each{error -> println error}
+		}
+		if (!membre3.save()){
+			membre3.errors.allErrors.each{error -> println error}
+		}
+
+		Post post1 = new Post(idPost : 1, intitule : "aaaaaaaaaaaaa", message : "jhkjsjgyugejrg", auteurPost : membre1)
+		Post post2 = new Post(idPost : 2, intitule : "bbbbbbbbbbbbb", message : "jhkjsjgyugejrg", auteurPost : membre1)
+		Post post3 = new Post(idPost : 3, intitule : "ccccccccccccc", message : "jhkjsjgyugejrg", auteurPost : membre2)
+		if (!post1.save()){
+			post1.errors.allErrors.each{error -> println error}
+		}
+		if (!post2.save()){
+			post2.errors.allErrors.each{error -> println error}
+		}
+		if (!post3.save()){
+			post3.errors.allErrors.each{error -> println error}
+		}
+
+
+		Commentaire com1 = new Commentaire(idCommentaire : 1, corpsCommentaire : "un commentaire 1", postCommentaire : post1)
+		Commentaire com2 = new Commentaire(idCommentaire : 2, corpsCommentaire : "un commentaire 2", postCommentaire : post1)
+		Commentaire com3 = new Commentaire(idCommentaire : 3, corpsCommentaire : "un commentaire 3", postCommentaire : post1)
+		if (!com1.save()){
+			com1.errors.allErrors.each{error -> println error}
+		}
+		if (!com2.save()){
+			com2.errors.allErrors.each{error -> println error}
+		}
+		if (!com3.save()){
+			com3.errors.allErrors.each{error -> println error}
+		}
+
+		post1
+				.addToCommentaires(com1)
+				.addToCommentaires(com2)
+				.save()
+		post2
+				.addToCommentaires(com2)
+				.addToCommentaires(com3)
+				.save()
+		post3
+				.addToCommentaires(com3)
+				.addToCommentaires(com1)
+				.save()
+	}
+
+
+	def destroy = {
+	}
+ }
