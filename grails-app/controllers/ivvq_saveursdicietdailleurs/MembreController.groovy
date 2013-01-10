@@ -16,9 +16,34 @@ class MembreController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {
-        redirect(action: "list", params: params)
+	def index() {
+		if (session.user != null){
+        	redirect(action: "show", params: params)
+		}else{
+			redirect(action: "login", params: params)
+		}
     }
+	
+	def login = {}
+	
+	def authenticate = {
+		def user = Membre.findByPseudoAndMdp(params.pseudo, params.mdp)
+		if(user){
+			session.user = user
+			flash.message = "Hello ${user.nom}!"
+			redirect(action:"login")
+			
+		}else{
+		flash.message = "Sorry, ${params.nom}. Please try again."
+		redirect(action:"login")
+		}
+	}
+	
+	def logout = {
+		flash.message = "Goodbye ${session.user.nom}"
+		session.user = null
+		redirect(action:"login")
+	}
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
