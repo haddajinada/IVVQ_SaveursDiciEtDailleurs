@@ -1,0 +1,38 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   application.properties
+#	new file:   grails-app/controllers/ivvq_saveursdicietdailleurs/CategorieController.groovy
+#	new file:   grails-app/controllers/ivvq_saveursdicietdailleurs/VisiteurController.groovy
+#	new file:   grails-app/domain/ivvq_saveursdicietdailleurs/Categorie.groovy
+#	new file:   grails-app/domain/ivvq_saveursdicietdailleurs/Visiteur.groovy
+#	new file:   grails-app/views/categorie/_form.gsp
+#	new file:   grails-app/views/categorie/create.gsp
+#	new file:   grails-app/views/categorie/edit.gsp
+#	new file:   grails-app/views/categorie/list.gsp
+#	new file:   grails-app/views/categorie/show.gsp
+#	new file:   grails-app/views/visiteur/_form.gsp
+#	new file:   grails-app/views/visiteur/create.gsp
+#	new file:   grails-app/views/visiteur/edit.gsp
+#	new file:   grails-app/views/visiteur/list.gsp
+#	new file:   grails-app/views/visiteur/show.gsp
+#	new file:   target-eclipse/classes/auth/login.gsp
+#	new file:   target-eclipse/classes/layouts/main.gsp
+#	new file:   test/unit/ivvq_saveursdicietdailleurs/CategorieControllerTests.groovy
+#	new file:   test/unit/ivvq_saveursdicietdailleurs/CategorieSpec.groovy
+#	new file:   test/unit/ivvq_saveursdicietdailleurs/VisiteurControllerTests.groovy
+#	new file:   test/unit/ivvq_saveursdicietdailleurs/VisiteurSpec.groovy
+#	new file:   web-app/WEB-INF/tld/c.tld
+#	new file:   web-app/WEB-INF/tld/fmt.tld
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	deleted:    target-eclipse/classes/spring/vide.txt
+#
+
