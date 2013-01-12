@@ -19,22 +19,29 @@ You should have received a copy of the GNU Affero General Public License along w
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create"><g:message code="Ajouter un pays" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="list-categorie" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
+			<h1><g:message code="Choisissez un pays" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<table>
 				<thead>
 					<tr>
-					
-						<g:sortableColumn property="idCategorie" title="${message(code: 'categorie.idCategorie.label', default: 'Id Categorie')}" />
-					
-						<g:sortableColumn property="nomCategorie" title="${message(code: 'categorie.nomCategorie.label', default: 'Nom Categorie')}" />
-					
+					<fieldset class="form">
+                    <div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'nationalite', 'error')} ">
+                        <label for="nationalite">
+                        	<select>
+                        		<option>France
+                        		<option>Maroc
+                        		<option>Côte d'Ivoire
+                        		<option>Sénégal
+                        	</select>
+                        </label>
+                    </div>
+                </fieldset>
 					</tr>
 				</thead>
 				<tbody>
