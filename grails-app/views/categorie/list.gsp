@@ -13,6 +13,7 @@ You should have received a copy of the GNU Affero General Public License along w
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'categorie.label', default: 'Categorie')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
+	
 	</head>
 	<body>
 		<a href="#list-categorie" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -30,28 +31,15 @@ You should have received a copy of the GNU Affero General Public License along w
 			<table>
 				<thead>
 					<tr>
-					<fieldset class="form">
-                    <div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'nationalite', 'error')} ">
-                        <label for="nationalite">
-                        	<select>
-                        		<option>France
-                        		<option>Maroc
-                        		<option>Côte d'Ivoire
-                        		<option>Sénégal
-                        	</select>
-                        </label>
-                    </div>
-                </fieldset>
+					<%--<g:select name="nomCategorie" noSelection="${['null':'Pays...']}" from="${Categorie.list()}" optionKey="nomCategorie" optionValue="nomCategorie"></g:select>
+					--%>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${categorieInstanceList}" status="i" var="categorieInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
 						<td><g:link action="show" id="${categorieInstance.id}">${fieldValue(bean: categorieInstance, field: "idCategorie")}</g:link></td>
-					
 						<td>${fieldValue(bean: categorieInstance, field: "nomCategorie")}</td>
-					
 					</tr>
 				</g:each>
 				</tbody>

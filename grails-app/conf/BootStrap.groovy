@@ -11,6 +11,7 @@
 import ivvq_saveursdicietdailleurs.Commentaire
 import ivvq_saveursdicietdailleurs.Membre
 import ivvq_saveursdicietdailleurs.Post
+import ivvq_saveursdicietdailleurs.Categorie
 
 /*******************************************************************************
  * Saveurs d’ici et d’ailleurs allows foodies to share recipes and cooking tips from around the globe.
@@ -25,6 +26,23 @@ import ivvq_saveursdicietdailleurs.Post
 class BootStrap {
 
  	def init = { servletContext ->
+		 
+		 Categorie categorie1 = new Categorie(idCategorie :"1", nomCategorie: "France")
+		 Categorie categorie2 = new Categorie(idCategorie :"2", nomCategorie: "Maroc")
+		 Categorie categorie3 = new Categorie(idCategorie :"3", nomCategorie: "Cote d'Ivoire")
+		 Categorie categorie4 = new Categorie(idCategorie :"4", nomCategorie: "Senegal")
+		 if (!categorie1.save()){
+			 categorie1.errors.allErrors.each{error -> println error}
+		 }
+		 if (!categorie2.save()){
+			 categorie2.errors.allErrors.each{error -> println error}
+		 }
+		 if (!categorie3.save()){
+			 categorie3.errors.allErrors.each{error -> println error}
+		 }
+		 if (!categorie4.save()){
+			 categorie4.errors.allErrors.each{error -> println error}
+		 }
 
 		Membre membre1 = new Membre(idMembre : "1", pseudo : "toto", mdp : "123456", prenom : "nado", nom : "nom1", adresse_mail : "nsdkjb@ds.fr")
 		Membre membre2 = new Membre(idMembre : "2", pseudo : "tata", mdp : "123456", prenom : "nada", nom : "nom2", adresse_mail : "nsdkjb@ds.fr")

@@ -109,4 +109,22 @@ class CategorieController {
             redirect(action: "show", id: id)
         }
     }
+	
+	def showRecettes = {
+//		def user = Membre.findByPseudoAndMdp(params.pseudo, params.mdp)
+//		if(!user) {
+//			redirect(action: "login")
+//		}
+//		else {
+//			redirect(action: "showRecettes")
+//		}
+	}
+	
+	def showPhotos = {}
+	
+	def showVideos = {}
+	
+	def showConcours = {}
+	
+	def showOutils = {}
 }
