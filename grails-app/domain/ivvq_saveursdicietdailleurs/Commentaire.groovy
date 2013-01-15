@@ -14,12 +14,12 @@ package ivvq_saveursdicietdailleurs
 
 class Commentaire {
 
-	int idCommentaire
+	//int idCommentaire
 	String corpsCommentaire
 	Post postCommentaire
 	
     static constraints = {
-		idCommentaire blank : false,nullable : false, unique : true
+		//idCommentaire blank : false,nullable : false, unique : true
 		corpsCommentaire blank : false, nullable : false
     }
 	
