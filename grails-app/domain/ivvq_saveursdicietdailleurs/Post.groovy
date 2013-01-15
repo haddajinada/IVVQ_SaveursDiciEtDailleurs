@@ -14,7 +14,7 @@ package ivvq_saveursdicietdailleurs
 
 class Post {
 
-	int idPost
+	//int idPost
 	String intitule
 	String message
 	Membre auteurPost
@@ -29,7 +29,7 @@ class Post {
 //	}
 
 	static constraints = {
-		idPost blank : false,nullable : false, unique : true
+		//idPost blank : false,nullable : false, unique : true
 		intitule blank : false, nullable : false
 		message blank : false, nullable : false
 	}
