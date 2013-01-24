@@ -44,9 +44,9 @@ class BootStrap {
 			 categorie4.errors.allErrors.each{error -> println error}
 		 }
 
-		Membre membre1 = new Membre(idMembre : "1", pseudo : "toto", mdp : "123456", prenom : "nado", nom : "nom1", adresse_mail : "nsdkjb@ds.fr")
-		Membre membre2 = new Membre(idMembre : "2", pseudo : "tata", mdp : "123456", prenom : "nada", nom : "nom2", adresse_mail : "nsdkjb@ds.fr")
-		Membre membre3 = new Membre(idMembre : "3", pseudo : "titi", mdp : "123456", prenom : "nadi", nom : "nom3", adresse_mail : "nsdkjb@ds.fr")
+		Membre membre1 = new Membre(pseudo : "toto", mdp : "123456", prenom : "nado", nom : "nom1", adresse_mail : "nsdkjb@ds.fr", role : "membre")
+		Membre membre2 = new Membre(pseudo : "tata", mdp : "123456", prenom : "nada", nom : "nom2", adresse_mail : "nsdkjb@ds.fr", role : "membre")
+		Membre membre3 = new Membre(pseudo : "titi", mdp : "123456", prenom : "nadi", nom : "nom3", adresse_mail : "nsdkjb@ds.fr", role : "membre")
 		if (!membre1.save()){
 			membre1.errors.allErrors.each{error -> println error}
 		}

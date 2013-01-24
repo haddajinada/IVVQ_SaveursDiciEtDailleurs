@@ -1,13 +1,4 @@
-<!--
-Saveurs d’ici et d’ailleurs allows foodies to share recipes and cooking tips from around the globe.
-Copyright (C) 2012 Anna CEJALVO - Nada HADDAJI KFITA - Ahou Melaine KOFFI - Marième TOURE
 
-Saveurs d’ici et d’ailleurs is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-Saveurs d’ici et d’ailleurs is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.html.
--->
 <%@ page import="ivvq_saveursdicietdailleurs.Membre" %>
 <!DOCTYPE html>
 <html>
@@ -59,15 +50,6 @@ You should have received a copy of the GNU Affero General Public License along w
 				</li>
 				</g:if>
 			
-				<g:if test="${membreInstance?.idMembre}">
-				<li class="fieldcontain">
-					<span id="idMembre-label" class="property-label"><g:message code="membre.idMembre.label" default="Id Membre" /></span>
-					
-						<span class="property-value" aria-labelledby="idMembre-label"><g:fieldValue bean="${membreInstance}" field="idMembre"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${membreInstance?.nom}">
 				<li class="fieldcontain">
 					<span id="nom-label" class="property-label"><g:message code="membre.nom.label" default="Nom" /></span>
@@ -77,11 +59,31 @@ You should have received a copy of the GNU Affero General Public License along w
 				</li>
 				</g:if>
 			
+				<g:if test="${membreInstance?.posts}">
+				<li class="fieldcontain">
+					<span id="posts-label" class="property-label"><g:message code="membre.posts.label" default="Posts" /></span>
+					
+						<g:each in="${membreInstance.posts}" var="p">
+						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${membreInstance?.prenom}">
 				<li class="fieldcontain">
 					<span id="prenom-label" class="property-label"><g:message code="membre.prenom.label" default="Prenom" /></span>
 					
 						<span class="property-value" aria-labelledby="prenom-label"><g:fieldValue bean="${membreInstance}" field="prenom"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${membreInstance?.role}">
+				<li class="fieldcontain">
+					<span id="role-label" class="property-label"><g:message code="membre.role.label" default="Role" /></span>
+					
+						<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${membreInstance}" field="role"/></span>
 					
 				</li>
 				</g:if>

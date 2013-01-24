@@ -11,13 +11,16 @@
 class UrlMappings {
 
 	static mappings = {
-		"/$controller/$action?/$id?"{
+		/* pour eviter de défiler dans lapplication , ou mettre une contrainte sur les sessions
+		  "/$controller/$action?/$id?"{
+		 
 			constraints {
 				// apply constraints here
 			}
 		}
-
+*/
 		"/"(view:"/index")
 		"500"(view:'/error')
 	}
+
 }
