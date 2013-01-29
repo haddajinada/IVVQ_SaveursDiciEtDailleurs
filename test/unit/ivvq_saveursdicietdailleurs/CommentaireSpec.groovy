@@ -21,12 +21,52 @@ import spock.lang.Specification
 @TestFor(Commentaire)
 class CommentaireSpec extends Specification {
 
-	def setup() {
+	void validateConstraints(obj, field, error) {
+		def validated = obj.validate()
+		if (error && error != 'valid') {
+			assert !validated
+			assert obj.errors[field]
+			assert error == obj.errors[field]
+		} else {
+			assert !obj.errors[field]
+		}
+	}
+   
+	def "corpsCommentaire not blank"() {
+		setup:
+		mockDomain(Commentaire)
+	   
+		when:
+		def commentaire=new Commentaire(corpsCommentaire:corpsCommentaire)
+		def commentaire2=new Commentaire(corpsCommentaire:"toto")
+		commentaire.validate()
+		commentaire2.validate()
+	   
+		then:
+		commentaire.errors.hasFieldErrors("corpsCommentaire")
+   
+		where:
+		corpsCommentaire=""
+	
 	}
 
-	def cleanup() {
+	def "test commentaire all constraints"() {
+		setup:
+		mockForConstraintsTests(Commentaire, [new Commentaire(corpsCommentaire:'toto')])
+	   
+		when:
+		def comment=new Commentaire("$field": val)
+	   
+		then:
+		validateConstraints(comment, field, error)
+	   
+		where:
+		error       |field                |val
+		'blank'     |'corpsCommentaire'   |''
+		'nullable'  |'corpsCommentaire'   |''
+		'valid'     |'corpsCommentaire'   |'toto'
+	
+
 	}
 
-	void "test something"() {
-	}
 }
