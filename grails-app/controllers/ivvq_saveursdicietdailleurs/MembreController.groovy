@@ -44,6 +44,8 @@ class MembreController {
 		session.user = null
 		redirect(action:"login")
 	}
+	
+	def inscription = {}
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)

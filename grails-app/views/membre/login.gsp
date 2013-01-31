@@ -21,7 +21,7 @@ You should have received a copy of the GNU Affero General Public License along w
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="create" action="create">S'inscrire</g:link></li>
+                <li><g:link class="create" action="inscription">S'inscrire</g:link></li>
             </ul>
         </div>
         <div id="create-membre" class="content scaffold-create" role="main">
@@ -46,12 +46,12 @@ You should have received a copy of the GNU Affero General Public License along w
                         <g:textField name="pseudo" value="${membreInstance?.pseudo}"/>
                     </div>
                     
-                    <div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'motDePasse', 'error')} ">
-                        <label for="motDePasse">
-                            <g:message code="membre.motDePasse.label" default="Mot de passe" />
+                    <div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'mdp', 'error')} ">
+                        <label for="mdp">
+                            <g:message code="membre.mdp.label" default="Mot de passe" />
                             
                         </label>
-                        <g:field type="motDePasse" name="motDePasse" value="${membreInstance?.motDePasse}"/>
+                        <g:field type="mdp" name="mdp" value="${membreInstance?.mdp}"/>
                     </div>
                 </fieldset>
                 <fieldset class="buttons">
