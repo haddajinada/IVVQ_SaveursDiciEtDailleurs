@@ -8,7 +8,40 @@
  * 
  * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.html.
  ******************************************************************************/
-dataSource {
+ dataSource {
+	pooled = true
+	driverClassName = "com.mysql.jdbc.Driver"
+	username = "root"
+	password = ""
+}
+hibernate {
+	cache.use_second_level_cache=true
+	cache.use_query_cache=true
+	cache.provider_class='org.hibernate.cache.EhCacheProvider'
+}
+// environment specific settings
+environments {
+	development {
+		dataSource {
+			dbCreate = "update" // one of 'create', 'create-drop','update'
+			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+		}
+	}
+	test {
+		dataSource {
+			dbCreate = "update"
+			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+		}
+	}
+	production {
+		dataSource {
+			dbCreate = "update"
+			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+		}
+	}
+}
+/* ANCIENNE VERSION SANS MYSQL _ANNA
+ dataSource {
     pooled = true
     driverClassName = "org.h2.Driver"
     username = "sa"
@@ -51,3 +84,4 @@ environments {
         }
     }
 }
+*/
