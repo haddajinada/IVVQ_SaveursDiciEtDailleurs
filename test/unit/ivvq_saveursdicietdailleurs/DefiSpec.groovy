@@ -58,7 +58,7 @@ class DefiSpec extends Specification {
 
 	}
 	
-	def "find defi by intitule"(){
+	def "find defi by intitule and categorie"(){
 		setup:
 		mockDomain(Defi)
 		mockDomain(Categorie)
