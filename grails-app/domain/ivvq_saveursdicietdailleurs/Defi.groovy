@@ -16,7 +16,7 @@ class Defi {
 	String description
 	Date dateCreation
 	Date dateLimite
-	//Categorie categorie
+	Categorie categorie
 	
 	// relation one-to-many
 	static hasMany = [posts:Post]
