@@ -10,21 +10,19 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-import grails.test.mixin.TestFor
-import spock.lang.Specification
+class Defi {
 
-/**
- * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
- */
-@TestFor(PostController)
-class PostControllerSpec extends Specification {
+	String intitule
+	String description
+	Date dateCreation
+	Date dateLimite
+	Categorie categorie
+	
+	// relation one-to-many
+	static hasMany = [posts:Post]
 
-	def setup() {
-	}
-
-	def cleanup() {
-	}
-
-	void "test something"() {
+	static constraints = {
+		intitule (blank:false)
+		description (widget:'textarea', nullable:true, blank:false)
 	}
 }

@@ -6,7 +6,7 @@
  * 
  * Saveurs d’ici et d’ailleurs is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
  * 
- * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.htm
+ * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.html.
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
@@ -16,9 +16,36 @@ class MembreController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {
-        redirect(action: "list", params: params)
+	def index() {
+		if (session.user != null){
+        	redirect(action: "show", params: params)
+		}else{
+			redirect(action: "login", params: params)
+		}
     }
+	
+	def login = {}
+	
+	def authenticate = {
+		def user = Membre.findByPseudoAndMdp(params.pseudo, params.mdp)
+		if(user){
+			session.user = user
+			flash.message = "Hello ${user.nom}!"
+			redirect(action:"login")
+			
+		}else{
+		flash.message = "Sorry, ${params.nom}. Please try again."
+		redirect(action:"login")
+		}
+	}
+	
+	def logout = {
+		flash.message = "Goodbye ${session.user.nom}"
+		session.user = null
+		redirect(action:"login")
+	}
+	
+	def inscription = {}
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)

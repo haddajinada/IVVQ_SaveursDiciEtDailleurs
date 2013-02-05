@@ -25,3 +25,4 @@ class Commentaire {
 		return "$corpsCommentaire"//$idCommentaire  $postCommentaire
 	}
 }
+
