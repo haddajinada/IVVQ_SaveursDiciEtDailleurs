@@ -23,15 +23,6 @@
 			</g:if>
 			<ol class="property-list post">
 			
-				<g:if test="${postInstance?.idPost}">
-				<li class="fieldcontain">
-					<span id="idPost-label" class="property-label"><g:message code="post.idPost.label" default="Id Post" /></span>
-					
-						<span class="property-value" aria-labelledby="idPost-label"><g:fieldValue bean="${postInstance}" field="idPost"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${postInstance?.intitule}">
 				<li class="fieldcontain">
 					<span id="intitule-label" class="property-label"><g:message code="post.intitule.label" default="Intitule" /></span>
@@ -46,6 +37,24 @@
 					<span id="message-label" class="property-label"><g:message code="post.message.label" default="Message" /></span>
 					
 						<span class="property-value" aria-labelledby="message-label"><g:fieldValue bean="${postInstance}" field="message"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.photo}">
+				<li class="fieldcontain">
+					<span id="photo-label" class="property-label"><g:message code="post.photo.label" default="Photo" /></span>
+					
+						<span class="property-value" aria-labelledby="photo-label"><g:link controller="photo" action="show" id="${postInstance?.photo?.id}">${postInstance?.photo?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.video}">
+				<li class="fieldcontain">
+					<span id="video-label" class="property-label"><g:message code="post.video.label" default="Video" /></span>
+					
+						<span class="property-value" aria-labelledby="video-label"><g:link controller="video" action="show" id="${postInstance?.video?.id}">${postInstance?.video?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

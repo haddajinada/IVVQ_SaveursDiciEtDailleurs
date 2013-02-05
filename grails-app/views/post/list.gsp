@@ -24,11 +24,13 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="idPost" title="${message(code: 'post.idPost.label', default: 'Id Post')}" />
-					
 						<g:sortableColumn property="intitule" title="${message(code: 'post.intitule.label', default: 'Intitule')}" />
 					
 						<g:sortableColumn property="message" title="${message(code: 'post.message.label', default: 'Message')}" />
+					
+						<th><g:message code="post.photo.label" default="Photo" /></th>
+					
+						<th><g:message code="post.video.label" default="Video" /></th>
 					
 						<th><g:message code="post.auteurPost.label" default="Auteur Post" /></th>
 					
@@ -38,11 +40,13 @@
 				<g:each in="${postInstanceList}" status="i" var="postInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "idPost")}</g:link></td>
-					
-						<td>${fieldValue(bean: postInstance, field: "intitule")}</td>
+						<td><g:link action="show" id="${postInstance.id}">${fieldValue(bean: postInstance, field: "intitule")}</g:link></td>
 					
 						<td>${fieldValue(bean: postInstance, field: "message")}</td>
+					
+						<td>${fieldValue(bean: postInstance, field: "photo")}</td>
+					
+						<td>${fieldValue(bean: postInstance, field: "video")}</td>
 					
 						<td>${fieldValue(bean: postInstance, field: "auteurPost")}</td>
 					

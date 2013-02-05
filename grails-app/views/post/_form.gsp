@@ -2,14 +2,6 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'idPost', 'error')} required">
-	<label for="idPost">
-		<g:message code="post.idPost.label" default="Id Post" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field type="number" name="idPost" required="" value="${postInstance.idPost}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'intitule', 'error')} required">
 	<label for="intitule">
 		<g:message code="post.intitule.label" default="Intitule" />
@@ -24,6 +16,22 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="message" required="" value="${postInstance?.message}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'photo', 'error')} ">
+	<label for="photo">
+		<g:message code="post.photo.label" default="Photo" />
+		
+	</label>
+	<g:select id="photo" name="photo.id" from="${ivvq_saveursdicietdailleurs.Photo.list()}" optionKey="id" value="${postInstance?.photo?.id}" class="many-to-one" noSelection="['null': '']"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: postInstance, field: 'video', 'error')} ">
+	<label for="video">
+		<g:message code="post.video.label" default="Video" />
+		
+	</label>
+	<g:select id="video" name="video.id" from="${ivvq_saveursdicietdailleurs.Video.list()}" optionKey="id" value="${postInstance?.video?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: postInstance, field: 'auteurPost', 'error')} required">
