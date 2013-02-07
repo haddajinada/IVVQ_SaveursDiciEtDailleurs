@@ -6,18 +6,18 @@
  * 
  * Saveurs d’ici et d’ailleurs is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
  * 
- * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.html.
+ * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.htm
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
 class Commentaire {
 
-	int idCommentaire
+	//int idCommentaire
 	String corpsCommentaire
-	Post postCommentaire
+	static belongsTo = [postCommentaire : Post]
 	
     static constraints = {
-		idCommentaire blank : false,nullable : false, unique : true
+		//idCommentaire blank : false,nullable : false, unique : true
 		corpsCommentaire blank : false, nullable : false
     }
 	
@@ -25,3 +25,4 @@ class Commentaire {
 		return "$corpsCommentaire"//$idCommentaire  $postCommentaire
 	}
 }
+
