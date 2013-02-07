@@ -44,7 +44,7 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
+        runtime 'mysql:mysql-connector-java:5.1.20'
 		//compile ":flash-player:1.4"
 		//build ":release:2.2.0" // c'est à propos de l'approche native concernant la gestion des dépendances
     }
