@@ -11,10 +11,9 @@
 package ivvq_saveursdicietdailleurs
 
 class Defi {
-
 	String intitule
 	String description
-	Date dateCreation
+	Date dateCreation = new Date()
 	Date dateLimite
 	Categorie categorie
 	
@@ -22,7 +21,8 @@ class Defi {
 	static hasMany = [posts:Post]
 
 	static constraints = {
-		intitule (blank:false)
-		description (widget:'textarea', nullable:true, blank:false)
+		intitule (blank:false, unique:true)
+		description (widget:'textarea', blank:false)
+		dateLimite (validator: {val, obj -> val?.after(obj.dateCreation)})
 	}
 }

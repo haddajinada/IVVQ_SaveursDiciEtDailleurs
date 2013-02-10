@@ -19,12 +19,47 @@ import spock.lang.Specification
 @TestFor(Categorie)
 class CategorieSpec extends Specification {
 
-	def setup() {
+	
+	def "test nomCategorie not blank"() {
+		setup:
+		mockDomain(Categorie)
+		
+		when:
+		def categorie = new Categorie(nomCategorie:nomCategorie)
+		categorie.validate()
+		
+		then:
+		categorie.errors.hasFieldErrors("nomCategorie")
+		
+		where:
+		nomCategorie = ""
 	}
+	
 
-	def cleanup() {
+	def "test nomCategorie not null"() {
+		
+		setup:
+		mockDomain(Categorie)
+		
+		when:
+		def categorie = new Categorie(nomCategorie:nomCategorie)
+		categorie.validate()
+		
+		then:
+		categorie.errors.hasFieldErrors("nomCategorie")
+		
+		where:
+		nomCategorie = null
 	}
-
-	void "test something"() {
+	
+	def "find categorie by nomCategorie"() {
+		setup:
+		mockDomain(Categorie)
+		
+		when:
+		def categorie = new Categorie(nomCategorie:"nomCategorie").save() 
+		
+		then:
+		Categorie.findByNomCategorie("nomCategorie") != null
 	}
 }

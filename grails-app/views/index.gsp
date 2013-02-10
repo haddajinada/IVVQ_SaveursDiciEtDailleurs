@@ -1,4 +1,3 @@
-
 <!--
 Saveurs d’ici et d’ailleurs allows foodies to share recipes and cooking tips from around the globe.
 Copyright (C) 2012 Anna CEJALVO - Nada HADDAJI KFITA - Ahou Melaine KOFFI - Marième TOURE

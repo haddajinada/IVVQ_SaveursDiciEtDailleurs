@@ -10,160 +10,155 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-
-
-import org.junit.*
-import grails.test.mixin.*
-
-@TestFor(PostController)
-@Mock(Post)
-class PostControllerTests {
-
+@TestFor(DefiController)
+@Mock(Defi)
+class DefiControllerTests {
 
     def populateValidParams(params) {
-      assert params != null
-      // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+        assert params != null
+
+        params["intitule"] = "Intitule du défi"
+		params["description"] = "Description du défi"
+		params["dateCreation"] = new Date()
+		params["dateLimite"] = new Date() + 5
+		params["categorie"] = new Categorie(nomCategorie:"Categorie du défi")
     }
 
     void testIndex() {
         controller.index()
-        assert "/post/list" == response.redirectedUrl
+        assert "/defi/list" == response.redirectedUrl
     }
 
     void testList() {
-
         def model = controller.list()
 
-        assert model.postInstanceList.size() == 0
-        assert model.postInstanceTotal == 0
+        assert model.defiInstanceList.size() == 0
+        assert model.defiInstanceTotal == 0
     }
 
     void testCreate() {
-       def model = controller.create()
+        def model = controller.create()
 
-       assert model.postInstance != null
+        assert model.defiInstance != null
     }
 
     void testSave() {
         controller.save()
 
-        assert model.postInstance != null
-        assert view == '/post/create'
+        assert model.defiInstance != null
+        assert view == '/defi/create'
 
         response.reset()
 
         populateValidParams(params)
         controller.save()
 
-        assert response.redirectedUrl == '/post/show/1'
+        assert response.redirectedUrl == '/defi/show/1'
         assert controller.flash.message != null
-        assert Post.count() == 1
+        assert Defi.count() == 1
     }
 
     void testShow() {
         controller.show()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/post/list'
-
+        assert response.redirectedUrl == '/defi/list'
 
         populateValidParams(params)
-        def post = new Post(params)
+        def defi = new Defi(params)
 
-        assert post.save() != null
+        assert defi.save() != null
 
-        params.id = post.id
+        params.id = defi.id
 
         def model = controller.show()
 
-        assert model.postInstance == post
+        assert model.defiInstance == defi
     }
 
     void testEdit() {
         controller.edit()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/post/list'
-
+        assert response.redirectedUrl == '/defi/list'
 
         populateValidParams(params)
-        def post = new Post(params)
+        def defi = new Defi(params)
 
-        assert post.save() != null
+        assert defi.save() != null
 
-        params.id = post.id
+        params.id = defi.id
 
         def model = controller.edit()
 
-        assert model.postInstance == post
+        assert model.defiInstance == defi
     }
 
     void testUpdate() {
         controller.update()
 
         assert flash.message != null
-        assert response.redirectedUrl == '/post/list'
+        assert response.redirectedUrl == '/defi/list'
 
         response.reset()
 
-
         populateValidParams(params)
-        def post = new Post(params)
+        def defi = new Defi(params)
 
-        assert post.save() != null
+        assert defi.save() != null
 
         // test invalid parameters in update
-        params.id = post.id
-        //TODO: add invalid values to params object
+        params.id = defi.id
+        //invalid values to params object
+		params.intitule = ""
 
         controller.update()
 
-        assert view == "/post/edit"
-        assert model.postInstance != null
+        assert view == "/defi/edit"
+        assert model.defiInstance != null
 
-        post.clearErrors()
+        defi.clearErrors()
 
         populateValidParams(params)
         controller.update()
 
-        assert response.redirectedUrl == "/post/show/$post.id"
+        assert response.redirectedUrl == "/defi/show/$defi.id"
         assert flash.message != null
 
         //test outdated version number
         response.reset()
-        post.clearErrors()
+        defi.clearErrors()
 
         populateValidParams(params)
-        params.id = post.id
+        params.id = defi.id
         params.version = -1
         controller.update()
 
-        assert view == "/post/edit"
-        assert model.postInstance != null
-        assert model.postInstance.errors.getFieldError('version')
+        assert view == "/defi/edit"
+        assert model.defiInstance != null
+        assert model.defiInstance.errors.getFieldError('version')
         assert flash.message != null
     }
 
     void testDelete() {
         controller.delete()
         assert flash.message != null
-        assert response.redirectedUrl == '/post/list'
+        assert response.redirectedUrl == '/defi/list'
 
         response.reset()
 
         populateValidParams(params)
-        def post = new Post(params)
+        def defi = new Defi(params)
 
-        assert post.save() != null
-        assert Post.count() == 1
+        assert defi.save() != null
+        assert Defi.count() == 1
 
-        params.id = post.id
+        params.id = defi.id
 
         controller.delete()
 
-        assert Post.count() == 0
-        assert Post.get(post.id) == null
-        assert response.redirectedUrl == '/post/list'
+        assert Defi.count() == 0
+        assert Defi.get(defi.id) == null
+        assert response.redirectedUrl == '/defi/list'
     }
 }
