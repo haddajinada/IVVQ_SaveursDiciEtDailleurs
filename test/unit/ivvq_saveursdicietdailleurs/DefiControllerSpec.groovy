@@ -31,8 +31,8 @@ class DefiControllerSpec extends Specification {
 		then:
 		response.redirectedUrl == "/defi/list"
 	}
-	
-	/*def "list action: 1 defi"() {
+	/*
+	def "list action: 1 defi"() {
 		setup:
 		mockLogging(DefiController, true)
 		mockDomain(Defi, [defiInstance])
@@ -42,9 +42,9 @@ class DefiControllerSpec extends Specification {
 		controller.list() == [defiInstanceList: [defiInstance], defiInstanceTotal:1]
 		
 		where:
-		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
-	}
-	
+		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
+	}*/
+	/*
 	def "list action: 2 defis and max = 1"() {
 		setup:
 		mockLogging(DefiController, true)
@@ -56,8 +56,8 @@ class DefiControllerSpec extends Specification {
 		controller.list() == [defiInstanceList: [firstDefiInstance], defiInstance: 2]
 		
 		where:
-		firstDefiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
-		secondDefiInstance = new Defi(intitule:"lala", description:"lili", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
+		firstDefiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
+		secondDefiInstance = new Defi(intitule:"lala", description:"lili", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
 	}*/
 	
 	def "create action"() {
@@ -85,7 +85,7 @@ class DefiControllerSpec extends Specification {
 		where:
 		intitule = "lala"
 		description = "desc de lala"
-		categorie = new Categorie(idCategorie:"trop lol", nomCategorie:"lol")
+		categorie = new Categorie(nomCategorie:"lol")
 		dateCreation = new Date()
 		dateLimite = new Date() + 10
 	}
@@ -98,7 +98,7 @@ class DefiControllerSpec extends Specification {
 		mockI18N(DefiController)
 		controller.params.intitule = "titi"
 		controller.params.description = "tit desc"
-		controller.params.categorie = new Categorie(idCategorie:"trop lol", nomCategorie:"lol")
+		controller.params.categorie = new Categorie(nomCategorie:"lol")
 		controller.params.dateCreation = new Date()
 		controller.params.dateLimite = new Date() + 10
 		
@@ -137,11 +137,11 @@ class DefiControllerSpec extends Specification {
 		where:
 		intitule = "lala"
 		description = ""
-		categorie = new Categorie(idCategorie:"trop lol", nomCategorie:"lol")
+		categorie = new Categorie(nomCategorie:"lol")
 		dateCreation = new Date()
 		dateLimite = new Date() + 10
-	}*/
-	
+	}
+	*/
 	def "show action: existing defi"() {
 		setup:
 		mockLogging(DefiController, true)
@@ -154,7 +154,7 @@ class DefiControllerSpec extends Specification {
 		controller.show() == [defiInstance: defiInstance]
 		
 		where:
-		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
+		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
 	}
 	/*
 	def "show action: not existing defi"() {
@@ -185,7 +185,7 @@ class DefiControllerSpec extends Specification {
 		controller.edit() == [defiInstance: defiInstance]
 		
 		where:
-		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
+		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
 	}
 	/*
 	def "edit action: not existing defi"() {
@@ -211,7 +211,7 @@ class DefiControllerSpec extends Specification {
 		mockI18N(DefiController)
 		controller.params.intitule = "titi changed"
 		controller.params.description = "tit desc changed"
-		controller.params.categorie = new Categorie(idCategorie:"trop lol", nomCategorie:"lol")
+		controller.params.categorie = new Categorie(nomCategorie:"lol")
 		controller.params.dateCreation = new Date()
 		controller.params.dateLimite = new Date() + 10
 		controller.params.version = defiInstance.version
@@ -225,7 +225,7 @@ class DefiControllerSpec extends Specification {
 		controller.flash.message != null
 	
 		where:
-		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date(), version: 1)
+		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date(), version: 1)
 	}
 
 	def "update action: optimistic locking"() {
@@ -236,7 +236,7 @@ class DefiControllerSpec extends Specification {
 		mockI18N(DefiController)
 		controller.params.intitule = "titi changed"
 		controller.params.description = "tit desc changed"
-		controller.params.categorie = new Categorie(idCategorie:"trop lol", nomCategorie:"lol")
+		controller.params.categorie = new Categorie(nomCategorie:"lol")
 		controller.params.dateCreation = new Date()
 		controller.params.dateLimite = new Date() + 10
 		//Decrease version of edited object to enforce optimistic locking validation
@@ -253,7 +253,7 @@ class DefiControllerSpec extends Specification {
 		
 		where:
 		currentVersionInDB = 2
-		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date(), version: currentVersionInDB)
+		defiInstance = new Defi(intitule:"toto", description:"titi", categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date(), version: currentVersionInDB)
 	}
 	*/
 }

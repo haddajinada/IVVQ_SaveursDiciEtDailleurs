@@ -47,7 +47,7 @@ class DefiSpec extends Specification {
 		
 		when:
 		def defi=new Defi(intitule:intitule, description:"toto")
-		def defi2=new Defi(intitule:"toto", description:description, categorie: new Categorie(idCategorie:"trop lol", nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
+		def defi2=new Defi(intitule:"toto", description:description, categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
 		defi.validate()
 		defi2.validate()
 		
@@ -85,7 +85,7 @@ def "test defi all constraints"() {
 		mockDomain(Categorie)
 		
 		when:
-		new Defi(intitule:"lola", description:"oulala", categorie:new Categorie(idCategorie:"id", nomCategorie:"categorie").save(), dateCreation:new Date(), dateLimite:new Date()).save()
+		new Defi(intitule:"lola", description:"oulala", categorie:new Categorie(nomCategorie:"categorie").save(), dateCreation:new Date(), dateLimite:new Date()).save()
 		
 		then:
 		Defi.findByDescription("oulala") != null
@@ -97,7 +97,7 @@ def "test defi all constraints"() {
 		mockDomain(Categorie)
 		
 		when:
-		Categorie categorie = new Categorie(idCategorie:"id", nomCategorie:"categorie").save()
+		Categorie categorie = new Categorie(nomCategorie:"categorie").save()
 		Defi defi = new Defi(intitule:"lola", description:"desc", categorie:categorie, dateCreation:new Date(), dateLimite:new Date()).save()
 		
 		then:
@@ -110,7 +110,7 @@ def "test defi all constraints"() {
 		mockDomain(Categorie)
 		
 		when:
-		Categorie categorie = new Categorie(idCategorie:"id", nomCategorie:"categorie").save()
+		Categorie categorie = new Categorie(nomCategorie:"categorie").save()
 		Defi defi = new Defi(intitule:"lola", description:"desc", categorie:categorie, dateCreation:new Date(), dateLimite:new Date()).save()
 		
 		then:
