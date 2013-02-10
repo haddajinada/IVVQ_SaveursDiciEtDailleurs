@@ -12,6 +12,7 @@ package ivvq_saveursdicietdailleurs
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
+import spock.lang.Unroll
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -19,12 +20,78 @@ import spock.lang.Specification
 @TestFor(Post)
 class PostSpec extends Specification {
 
-	def setup() {
+	void validateConstraints(obj, field, error) {
+		def validated = obj.validate()
+		if (error && error != 'valid') {
+			assert !validated
+			assert obj.errors[field]
+			assert error == obj.errors[field]
+		} else {
+			assert !obj.errors[field]
+		}
+	}
+	
+	def "index action"() {
+		setup:
+		mockLogging(PostController, true)
+		
+		when:
+		controller.index()
+		
+		then:
+		response.redirectedUrl == "/post/list"
+	}
+	
+	def "intitule and message not blank"() {
+		setup:
+		mockDomain(Membre)
+		mockDomain(Post)
+		
+		when:
+		Membre membre = new Membre(idMembre:"id", pseudo:"pseudo", mdp:"mdp", prenom:"nada", nom:"jojjo", adresse_mail:"dfdfdsf@dfdsf.fr").save()
+		Post post = new Post(intitule:intitule, message:"test de post", auteurPost:membre).save()
+		post.validate()
+		
+		then:
+		post.errors.hasFieldErrors("intitule")
+
+		
+		where:
+		intitule=""
 	}
 
-	def cleanup() {
+@Unroll("test post all constraints #field is #error using #val")
+def "test post all constraints"() {
+		setup:
+		mockForConstraintsTests(Post, [new Post(intitule:'toto')])
+		
+		when:
+		def post=new Post("$field": val)		
+		
+		then:
+		validateConstraints(post, field, error)
+		
+		where:
+		error	  |field		|val
+		'blank'	  |'intitule'	|''
+		'nullable'|'intitule'	|null
+		'blank'	  |'message'	|''
+		'nullable'|'message'	|null
+		'blank'	  |'auteurPost'	|''
+		'nullable'|'auteurPost'	|null
+	}
+	
+	def "find post by intitule"() {
+		setup:
+		mockDomain(Membre)
+		mockDomain(Post)
+		
+		when:
+		Membre membre = new Membre(idMembre:"id", pseudo:"pseudo", mdp:"mdp", prenom:"nada", nom:"jojjo", adresse_mail:"dfdfdsf@dfdsf.fr").save()
+		Post post = new Post(intitule:"post1", message:"test de post", auteurPost:membre).save()
+		
+		then:
+		Post.findByIntitule("post1") != null
 	}
 
-	void "test something"() {
-	}
 }
