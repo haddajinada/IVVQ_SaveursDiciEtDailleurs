@@ -25,7 +25,6 @@ html {
 	background-image: linear-gradient(top, #E869AA, #D8A6EA);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr = '#E869AA', EndColorStr = '#D8A6EA');
 	background-repeat: no-repeat;
-	
 	/* change the box model to exclude the padding from the calculation of 100% height (IE8+) */
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
@@ -57,11 +56,11 @@ body {
 	
 }
 
-#saveursLogo {
+#saveursBanner {
+	position: relative;
 	background-color: #880045;
 	color: #F9D0E5;
-	font-size: 450%;
-	text-align: center;
+	font-size: 400%;
 	font-style: italic;
 }
 

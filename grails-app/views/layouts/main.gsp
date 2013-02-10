@@ -23,10 +23,9 @@ You should have received a copy of the GNU Affero General Public License along w
 		<r:layoutResources />
 	</head>
 	<body>
-		<div id="saveursLogo" role="banner">
+		<div id="saveursBanner" role="banner">
+			<img src="${resource(dir: 'images', file: 'ingredients/Ingredients.jpg')}" height="150" alt="SaveursDiciEtDailleurs"/>
 			Saveurs d'ici et d'ailleurs
-			<!--  <img src="${resource(dir: 'images', file: 'TravauxEncoursa.jpg')}" alt="SaveursDiciEtDailleurs"/>
-			-->
 		</div>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo"></div>
