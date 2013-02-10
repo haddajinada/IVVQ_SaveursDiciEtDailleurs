@@ -10,19 +10,18 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-
-
-import org.junit.*
-import grails.test.mixin.*
-
 @TestFor(DefiController)
 @Mock(Defi)
 class DefiControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+
+        params["intitule"] = "Intitule du défi"
+		params["description"] = "Description du défi"
+		params["dateCreation"] = new Date()
+		params["dateLimite"] = new Date() + 5
+		params["categorie"] = new Categorie(nomCategorie:"Categorie du défi")
     }
 
     void testIndex() {
@@ -31,7 +30,6 @@ class DefiControllerTests {
     }
 
     void testList() {
-
         def model = controller.list()
 
         assert model.defiInstanceList.size() == 0
@@ -111,7 +109,8 @@ class DefiControllerTests {
 
         // test invalid parameters in update
         params.id = defi.id
-        //TODO: add invalid values to params object
+        //invalid values to params object
+		params.intitule = ""
 
         controller.update()
 
