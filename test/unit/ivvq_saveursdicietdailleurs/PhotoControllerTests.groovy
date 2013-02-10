@@ -25,7 +25,7 @@ class PhotoControllerTests {
     def populateValidParams(params) {
       assert params != null
       // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+      params["recette"] = "recette avec photo"
     }
 
     void testIndex() {
@@ -118,7 +118,8 @@ class PhotoControllerTests {
         // test invalid parameters in update
         params.id = photo.id
         //TODO: add invalid values to params object
-
+		params.recette = ""
+		
         controller.update()
 
         assert view == "/photo/edit"

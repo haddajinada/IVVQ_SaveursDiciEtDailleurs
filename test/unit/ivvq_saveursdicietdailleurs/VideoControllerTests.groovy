@@ -23,7 +23,9 @@ class VideoControllerTests {
     def populateValidParams(params) {
       assert params != null
       // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+      params["titreRecette"] = "recette de nada"
+	  params["keyVideoYoutube"] = "xnT2HR0RQnA"
+	  params["recette"] = "une bonne recette"
     }
 
     void testIndex() {
@@ -116,7 +118,8 @@ class VideoControllerTests {
         // test invalid parameters in update
         params.id = video.id
         //TODO: add invalid values to params object
-
+		params.titreRecette = ""
+		
         controller.update()
 
         assert view == "/video/edit"
