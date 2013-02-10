@@ -13,7 +13,7 @@ package ivvq_saveursdicietdailleurs
 class Defi {
 	String intitule
 	String description
-	Date dateCreation
+	Date dateCreation = new Date()
 	Date dateLimite
 	Categorie categorie
 	
