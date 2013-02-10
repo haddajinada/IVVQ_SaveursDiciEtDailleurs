@@ -33,7 +33,7 @@ class PostSpec extends Specification {
 	
 	def "index action"() {
 		setup:
-		mockLogging(PostController, true)
+		//mockLogging(PostController, true)
 		
 		when:
 		controller.index()
