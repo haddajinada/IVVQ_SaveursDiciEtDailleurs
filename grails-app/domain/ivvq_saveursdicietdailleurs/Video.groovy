@@ -15,7 +15,7 @@ class Video {
 	String titreRecette
 	String keyVideoYoutube	
 	String recette
-	//static belongsTo = [post : Post]
+	static belongsTo = [post : Post]
 	
 	static constraints = {
 		titreRecette blank:false

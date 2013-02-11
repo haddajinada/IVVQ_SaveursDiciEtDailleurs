@@ -13,9 +13,9 @@
 package ivvq_saveursdicietdailleurs
 
 
-
-import grails.test.mixin.*
-import org.junit.*
+import grails.test.mixin.TestFor
+import spock.lang.Unroll
+import sun.security.action.GetLongAction;
 
 /**
  * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
@@ -23,7 +23,21 @@ import org.junit.*
 @TestFor(Photo)
 class PhotoSpec {
 
-    void testSomething() {
-       fail "Implement me"
-    }
+@Unroll("test post all constraints #field is #error using #val")
+def "test photo all constraints"() {
+		setup:
+		mockForConstraintsTests(Photo, [new Photo(recette:'toto', image : new byte[10000001])])
+		
+		when:
+		def photo=new Photo("$field": val)		
+		
+		then:
+		validateConstraints(photo, field, error)
+		
+		where:
+		error	  |field		|val
+		'size'	  |'image'	    |getLongbyte(10000001)
+
+	}
+	
 }

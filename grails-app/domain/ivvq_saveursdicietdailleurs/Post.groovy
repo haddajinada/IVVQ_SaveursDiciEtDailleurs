@@ -12,22 +12,12 @@ package ivvq_saveursdicietdailleurs
 
 class Post {
 
-	int idPost
 	String intitule
 	String message
 	Membre auteurPost
 	static hasMany = [commentaires : Commentaire]
 
-//	def beforeInsert() {
-//		def lastIdPost = Post.list([sort: 'idPost', order:'desc', max: 1])
-//		if(lastIdPost)
-//			idPost = (lastIdPost.pop().getAt(idPost) as int) + 1 as int
-//		else
-//			idPost = '0'
-//	}
-
 	static constraints = {
-		idPost blank : false,nullable : false, unique : true
 		intitule blank : false, nullable : false
 		message blank : false, nullable : false
 	}

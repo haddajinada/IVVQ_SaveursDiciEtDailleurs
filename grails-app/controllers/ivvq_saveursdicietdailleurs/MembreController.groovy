@@ -17,9 +17,10 @@ class MembreController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
 	def index() {
-		if (session.user != null){
+		if (session.user != null) {
         	redirect(action: "show", params: params)
-		}else{
+		}
+		else {
 			redirect(action: "login", params: params)
 		}
     }

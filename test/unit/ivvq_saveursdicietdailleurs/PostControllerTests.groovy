@@ -23,7 +23,9 @@ class PostControllerTests {
     def populateValidParams(params) {
       assert params != null
       // TODO: Populate valid properties like...
-      //params["name"] = 'someValidName'
+	  params["intitule"] = "intitule du premier post"
+	  params["message"] = "message du premier post"
+	  params["auteurPost"] = "auteur du premier post"
     }
 
     void testIndex() {
@@ -116,7 +118,8 @@ class PostControllerTests {
         // test invalid parameters in update
         params.id = post.id
         //TODO: add invalid values to params object
-
+		params.intitule = ""
+		
         controller.update()
 
         assert view == "/post/edit"
