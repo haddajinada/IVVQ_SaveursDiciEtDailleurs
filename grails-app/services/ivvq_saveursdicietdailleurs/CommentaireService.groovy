@@ -15,10 +15,10 @@ class CommentaireService {
 		 com
 	}
 	
-	@Transactional(readOnly = true)
-	def listCommentaires() {
-		Commentaire.list()
-	}
+//	@Transactional(readOnly = true)
+//	def listCommentaires() {
+//		Commentaire.list()
+//	}
 	
 	void updateCorpsCommentaire(id, String com) {
 		def comm = Commentaire.get(id)

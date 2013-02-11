@@ -11,7 +11,13 @@ class CommentaireServiceSpec extends IntegrationSpec {
 		
 		where:    corps     | post   | creationFailed    
 		          null      | null   |  true    
-				  "totoTi"  |  null  |  false
+				  "bill"    | null   |  false
 	}
 	
+	def "commentaire modification"() {
+		expect:
+		CommentaireService.updateCorpsCommentaire(1, corps)
+		
+		where:    corps = "com1"
+	}
 }
