@@ -4,11 +4,7 @@ import org.springframework.transaction.annotation.Transactional
 
 class CommentaireService {
 
-	/**   * Create a user and persists him   
-	 * * @param userName   
-	 * * @param name   
-	 * * @param firstName   
-	 * * @return the user   */  
+	/**   * Create a commentaire and persists him   **/
 	Commentaire createCommentaire(String corpsCommentaire, Post post = null) {
 		Commentaire com = new Commentaire(corpsCommentaire: corpsCommentaire, postCommentaire: post)   
 		 com.save()   
