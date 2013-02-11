@@ -11,7 +11,7 @@ You should have received a copy of the GNU Affero General Public License along w
 <%@ page import="ivvq_saveursdicietdailleurs.Membre" %>
 <!DOCTYPE html>
 <html>
-	<head>
+		<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'membre.label', default: 'Membre')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>

@@ -59,11 +59,11 @@ You should have received a copy of the GNU Affero General Public License along w
 				</li>
 				</g:if>
 			
-				<g:if test="${membreInstance?.idMembre}">
+				<g:if test="${membreInstance?.role}">
 				<li class="fieldcontain">
-					<span id="idMembre-label" class="property-label"><g:message code="membre.idMembre.label" default="Id Membre" /></span>
+					<span id="role-label" class="property-label"><g:message code="membre.role.label" default="Role" /></span>
 					
-						<span class="property-value" aria-labelledby="idMembre-label"><g:fieldValue bean="${membreInstance}" field="idMembre"/></span>
+						<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${membreInstance}" field="role"/></span>
 					
 				</li>
 				</g:if>
@@ -73,6 +73,17 @@ You should have received a copy of the GNU Affero General Public License along w
 					<span id="nom-label" class="property-label"><g:message code="membre.nom.label" default="Nom" /></span>
 					
 						<span class="property-value" aria-labelledby="nom-label"><g:fieldValue bean="${membreInstance}" field="nom"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${membreInstance?.posts}">
+				<li class="fieldcontain">
+					<span id="posts-label" class="property-label"><g:message code="membre.posts.label" default="Posts" /></span>
+					
+						<g:each in="${membreInstance.posts}" var="p">
+						<span class="property-value" aria-labelledby="posts-label"><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
 					
 				</li>
 				</g:if>

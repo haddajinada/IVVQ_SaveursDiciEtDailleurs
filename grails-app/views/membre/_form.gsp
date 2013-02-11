@@ -28,20 +28,20 @@ You should have received a copy of the GNU Affero General Public License along w
 	<g:textField name="mdp" maxlength="12" required="" value="${membreInstance?.mdp}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'adresse_mail', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'adresse_mail', 'error')} required">
 	<label for="adresse_mail">
 		<g:message code="membre.adresse_mail.label" default="Adressemail" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:field type="email" name="adresse_mail" value="${membreInstance?.adresse_mail}"/>
+	<g:field type="email" name="adresse_mail" required="" value="${membreInstance?.adresse_mail}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'idMembre', 'error')} ">
-	<label for="idMembre">
-		<g:message code="membre.idMembre.label" default="Id Membre" />
-		
+<div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'role', 'error')} required">
+	<label for="role">
+		<g:message code="membre.role.label" default="Role" />
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="idMembre" value="${membreInstance?.idMembre}"/>
+	<g:select name="role" from="${membreInstance.constraints.role.inList}" required="" value="${membreInstance?.role}" valueMessagePrefix="membre.role"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'nom', 'error')} ">
@@ -50,6 +50,23 @@ You should have received a copy of the GNU Affero General Public License along w
 		
 	</label>
 	<g:textField name="nom" value="${membreInstance?.nom}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'posts', 'error')} ">
+	<label for="posts">
+		<g:message code="membre.posts.label" default="Posts" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${membreInstance?.posts?}" var="p">
+    <li><g:link controller="post" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="post" action="create" params="['membre.id': membreInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'post.label', default: 'Post')])}</g:link>
+</li>
+</ul>
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: membreInstance, field: 'prenom', 'error')} ">
