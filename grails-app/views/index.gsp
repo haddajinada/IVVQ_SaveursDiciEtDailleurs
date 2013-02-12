@@ -63,7 +63,7 @@ You should have received a copy of the GNU Affero General Public License along w
 		
 		#page-body {
 			margin: 2em 1em 1.25em 18em;
-			height: 30em;
+			height: 16em;
 		}
 		
 		h2 {
@@ -138,6 +138,7 @@ You should have received a copy of the GNU Affero General Public License along w
 				<li class="controller"><g:link controller="Commentaire">Commentaires</g:link></li>
 			</ul>
 		</div>
+		
 		<div id="page-body" role="main">
 			<h2>
 				Saveurs d'ici et d'ailleurs vous souhaite la bienvenue!</br>
@@ -148,8 +149,19 @@ You should have received a copy of the GNU Affero General Public License along w
 				inscrire ^^.</p>
 			<p>Et pour vous donner un avant goût de ce que vous pouvez trouver
 				ici, voici les dernières recettes postées par nos membres :</p>
-			</br>
-			
+			<br>
+			<p>Place publicitaire, veuillez laisser ici vos publicités !!!!</p>
+		</div>
+		
+		<div id="status" role="complementary">
+			<h2>INFORMATIONS</h2>
+			<ul>
+				<li>Lancement du concours MasterChef sur TF1</li>
+				<li>L'université Paul Sabatier organise une journée de présentation de recette culinaires le 01/03/2013</li>
+			</ul>
+		</div>
+		
+		<div id="page-body" role="main">
 			<ul class="diaporama">
             	<li>
 	            	<img src="${resource(dir: 'images/ingredients', file: 'Ingredients.jpg')}" alt="Queenie's Killer Tomato Bagel Sandwich" title="Queenie's Killer Tomato Bagel Sandwich" style = "float: inherit;" width="620" height="235" />
@@ -166,7 +178,6 @@ You should have received a copy of the GNU Affero General Public License along w
             	</li>
             	
 	        </ul>
-	        	
 			<table>
 				<g:each in="${ivvq_saveursdicietdailleurs.Post.findAll(max:2)}" status="i" var="postInstance">
 					<tr>
@@ -176,6 +187,7 @@ You should have received a copy of the GNU Affero General Public License along w
 					</tr>
 				</g:each>
 			</table>
+			
 		</div>
 	</body>
 </html>

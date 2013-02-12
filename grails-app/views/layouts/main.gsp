@@ -28,7 +28,7 @@ You should have received a copy of the GNU Affero General Public License along w
 			Saveurs d'ici et d'ailleurs
 		</div>
 		<g:layoutBody/>
-		<div class="footer" role="contentinfo"></div>
+		<div class="footer" role="contentinfo">Copyright © 2013 SaveursDIciEtDailleurs All rights reserved</div>
 		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
 		<g:javascript library="application"/>
 		<r:layoutResources />
