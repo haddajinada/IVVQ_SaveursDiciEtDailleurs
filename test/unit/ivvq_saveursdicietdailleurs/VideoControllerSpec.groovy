@@ -6,26 +6,34 @@
  * 
  * Saveurs d’ici et d’ailleurs is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
  * 
- * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.htm
+ * You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.html.
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-class Video {
+import grails.test.mixin.TestFor
+import spock.lang.Specification
 
-	String titreRecette
-	String keyVideoYoutube	
-	String recette
-	//static belongsTo = [post : Post]
-	
-	static constraints = {
-		titreRecette blank:false
-		keyVideoYoutube(blank:false)
-		recette blank:true
+/**
+ * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
+ */
+@TestFor(VideoController)
+class VideoControllerSpec extends Specification {
+
+def mockI18N = { controller ->
+		controller.metaClass.message = { Map map ->
+			return "I18N message ($map)"
+		}
 	}
 	
-	String toString() {
-		return recette
-	}
-
+def "index action"() {
+		setup:
+		
+		when:
+		controller.index()
+		
+		then:
+		response.redirectedUrl == "/video/list"
 }
 
+
+}
