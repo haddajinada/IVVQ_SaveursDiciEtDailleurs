@@ -16,11 +16,10 @@ class MembreController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-	def index() {
-		if (session.user != null) {
+    def index() {
+		if (session.user != null){
         	redirect(action: "show", params: params)
-		}
-		else {
+		}else{
 			redirect(action: "login", params: params)
 		}
     }
@@ -47,6 +46,7 @@ class MembreController {
 	}
 	
 	def inscription = {}
+
 
     def list(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -137,4 +137,5 @@ class MembreController {
             redirect(action: "show", id: id)
         }
     }
+
 }

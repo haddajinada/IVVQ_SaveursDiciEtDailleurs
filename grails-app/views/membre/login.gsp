@@ -14,14 +14,15 @@ You should have received a copy of the GNU Affero General Public License along w
     <head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'membre.label', default: 'Membre')}" />
-		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<!--  <title><g:message code="default.create.label" args="[entityName]" /></title>-->
+		<title> Se connecter </title>
 	</head>
     <body>
         <a href="#create-membre" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                <li><g:link class="create" action="inscription">S'inscrire</g:link></li>
+                <li><g:link class="create" action="create">S'inscrire</g:link></li>
             </ul>
         </div>
         <div id="create-membre" class="content scaffold-create" role="main">

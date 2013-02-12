@@ -39,7 +39,7 @@ You should have received a copy of the GNU Affero General Public License along w
 					
 						<g:sortableColumn property="adresse_mail" title="${message(code: 'membre.adresse_mail.label', default: 'Adressemail')}" />
 					
-						<g:sortableColumn property="idMembre" title="${message(code: 'membre.idMembre.label', default: 'Id Membre')}" />
+						<g:sortableColumn property="role" title="${message(code: 'membre.role.label', default: 'Role')}" />
 					
 						<g:sortableColumn property="nom" title="${message(code: 'membre.nom.label', default: 'Nom')}" />
 					
@@ -57,7 +57,7 @@ You should have received a copy of the GNU Affero General Public License along w
 					
 						<td>${fieldValue(bean: membreInstance, field: "adresse_mail")}</td>
 					
-						<td>${fieldValue(bean: membreInstance, field: "idMembre")}</td>
+						<td>${fieldValue(bean: membreInstance, field: "role")}</td>
 					
 						<td>${fieldValue(bean: membreInstance, field: "nom")}</td>
 					
