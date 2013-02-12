@@ -10,8 +10,6 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-
-
 import org.junit.*
 import grails.test.mixin.*
 
@@ -21,13 +19,18 @@ class MembreControllerTests {
 
     def populateValidParams(params) {
         assert params != null
-        // TODO: Populate valid properties like...
-        //params["name"] = 'someValidName'
+        // Populate valid properties like...
+        params["pseudo"] = "Mi"
+		params["mdp"] = "mi0001"
+		params["prenom"] = "mel"
+		params["nom"] = "mel"
+		params["adresse_mail"] = "mail@gmail.com"
+		params["role"] = "membre"
     }
 
     void testIndex() {
         controller.index()
-        assert "/membre/list" == response.redirectedUrl
+        assert "/membre/login" == response.redirectedUrl
     }
 
     void testList() {
@@ -42,9 +45,9 @@ class MembreControllerTests {
         def model = controller.create()
 
         assert model.membreInstance != null
-    }
-
-    void testSave() {
+	}
+	
+	void testSave() {
         controller.save()
 
         assert model.membreInstance != null
@@ -111,7 +114,8 @@ class MembreControllerTests {
 
         // test invalid parameters in update
         params.id = membre.id
-        //TODO: add invalid values to params object
+        //add invalid values to params object
+		params["pseudo"] = ""
 
         controller.update()
 
