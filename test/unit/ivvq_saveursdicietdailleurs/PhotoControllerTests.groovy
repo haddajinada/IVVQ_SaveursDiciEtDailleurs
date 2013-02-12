@@ -37,9 +37,9 @@ class PhotoControllerTests {
 
 		assert model.photoInstance != null
 	}
-/*
+
 	void testSave() {
-		controller.save()
+	/*	controller.save()
 
 		assert model.photoInstance != null
 		assert view == '/photo/create'
@@ -51,11 +51,11 @@ class PhotoControllerTests {
 
 		assert response.redirectedUrl == '/photo/show/1'
 		assert controller.flash.message != null
-		assert Photo.count() == 1
+		assert Photo.count() == 1*/
 	}
 
 	void testShow() {
-		controller.show()
+		/*controller.show()
 
 		assert flash.message != null
 		assert response.redirectedUrl == '/photo/list'
@@ -69,11 +69,11 @@ class PhotoControllerTests {
 
 		def model = controller.show()
 
-		assert model.photoInstance == photo
+		assert model.photoInstance == photo*/
 	}
 
 	void testEdit() {
-		controller.edit()
+		/*controller.edit()
 
 		assert flash.message != null
 		assert response.redirectedUrl == '/photo/list'
@@ -87,11 +87,11 @@ class PhotoControllerTests {
 
 		def model = controller.edit()
 
-		assert model.photoInstance == photo
+		assert model.photoInstance == photo*/
 	}
 
 	void testUpdate() {
-		controller.update()
+		/*controller.update()
 
 		assert flash.message != null
 		assert response.redirectedUrl == '/photo/list'
@@ -133,11 +133,11 @@ class PhotoControllerTests {
 		assert view == "/photo/edit"
 		assert model.photoInstance != null
 		assert model.photoInstance.errors.getFieldError('version')
-		assert flash.message != null
+		assert flash.message != null*/
 	}
 
 	void testDelete() {
-		controller.delete()
+		/*controller.delete()
 		assert flash.message != null
 		assert response.redirectedUrl == '/photo/list'
 
@@ -155,6 +155,6 @@ class PhotoControllerTests {
 
 		assert Photo.count() == 0
 		assert Photo.get(photo.id) == null
-		assert response.redirectedUrl == '/photo/list'
-	}*/
+		assert response.redirectedUrl == '/photo/list'*/
+	}
 }
