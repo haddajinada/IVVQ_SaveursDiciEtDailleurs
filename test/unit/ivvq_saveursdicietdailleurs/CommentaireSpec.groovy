@@ -31,7 +31,6 @@ class CommentaireSpec extends Specification {
 			assert !obj.errors[field]
 		}
 	}
-	
    
 	def "corpsCommentaire not blank"() {
 		setup:
@@ -66,29 +65,6 @@ class CommentaireSpec extends Specification {
 		'blank'     |'corpsCommentaire'   |''
 		'nullable'  |'corpsCommentaire'   |null
 		'valid'     |'corpsCommentaire'   |'toto'
-	
-
 	}
-	
-	
-	def "create commentaire with succeess"() {
-		setup:
-		mockDomain(Membre)
-		mockDomain(Post)
-		mockDomain(Commentaire)
-		
-		when:
-		Membre membre = new Membre(idMembre:"id", pseudo:"pseudo", mdp:"mdp", prenom:"nasa", nom:"jojjo", adresse_mail:"dfdfdsf@dfdsf.fr").save()
-		Post post = new Post(intitule:"post1", message:"test de post", auteurPost:membre).save()
-		Commentaire commentaire = new Commentaire(corpsCommentaire: "com 1", postCommentaire : post).save()
-		
-		then:
-		Membre.findByPseudo("pseudo") != null
-		Post.count() > 0
-		Commentaire.count() > 0
-		
-	}
-	
-
 }
 

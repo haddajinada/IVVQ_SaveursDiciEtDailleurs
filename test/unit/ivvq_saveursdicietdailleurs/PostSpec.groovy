@@ -31,37 +31,25 @@ class PostSpec extends Specification {
 		}
 	}
 	
-	def "index action"() {
-		setup:
-		//mockLogging(PostController, true)
-		
-		when:
-		controller.index()
-		
-		then:
-		response.redirectedUrl == "/post/list"
-	}
-	
-	def "intitule and message not blank"() {
+	def "intitule not blank"() {
 		setup:
 		mockDomain(Membre)
 		mockDomain(Post)
 		
 		when:
-		Membre membre = new Membre(idMembre:"id", pseudo:"pseudo", mdp:"mdp", prenom:"nada", nom:"jojjo", adresse_mail:"dfdfdsf@dfdsf.fr").save()
-		Post post = new Post(intitule:intitule, message:"test de post", auteurPost:membre).save()
+		Membre membre = new Membre(idMembre:"id", pseudo:"pseudo", mdp:"mdp", prenom:"nada", nom:"jojjo", adresse_mail:"dfdfdsf@dfdsf.fr")
+		Post post = new Post(intitule:intitule, message:"test de post", auteurPost:membre)
 		post.validate()
 		
 		then:
 		post.errors.hasFieldErrors("intitule")
-
 		
 		where:
 		intitule=""
 	}
 
-@Unroll("test post all constraints #field is #error using #val")
-def "test post all constraints"() {
+	@Unroll("test post all constraints #field is #error using #val")
+	def "test post all constraints"() {
 		setup:
 		mockForConstraintsTests(Post, [new Post(intitule:'toto')])
 		
@@ -77,21 +65,5 @@ def "test post all constraints"() {
 		'nullable'|'intitule'	|null
 		'blank'	  |'message'	|''
 		'nullable'|'message'	|null
-		'blank'	  |'auteurPost'	|''
-		'nullable'|'auteurPost'	|null
 	}
-	
-	def "find post by intitule"() {
-		setup:
-		mockDomain(Membre)
-		mockDomain(Post)
-		
-		when:
-		Membre membre = new Membre(idMembre:"id", pseudo:"pseudo", mdp:"mdp", prenom:"nada", nom:"jojjo", adresse_mail:"dfdfdsf@dfdsf.fr").save()
-		Post post = new Post(intitule:"post1", message:"test de post", auteurPost:membre).save()
-		
-		then:
-		Post.findByIntitule("post1") != null
-	}
-
 }

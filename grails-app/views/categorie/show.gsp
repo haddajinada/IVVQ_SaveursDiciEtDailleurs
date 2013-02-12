@@ -28,6 +28,8 @@ You should have received a copy of the GNU Affero General Public License along w
 				<%--<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
 				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			--%>
+				<li><g:link action="showRecettes" id="1">Recettes</g:link>
+                <li><g:link action="showDefis" id="4">Défis</g:link>
 			</ul>
 		</div>
 		<div id="show-categorie" class="content scaffold-show" role="main">
@@ -35,15 +37,6 @@ You should have received a copy of the GNU Affero General Public License along w
 			<div class="message" role="status">${flash.message}</div>
 			</g:if>
 			<ol class="property-list categorie">
-			<g:form>
-				<fieldset class="buttons">
-					<g:link action="showRecettes" id="1">Recettes</g:link>
-					<g:link action="showPhotos" id="2">Photos</g:link>
-					<g:link action="showVideos" id="3">Videos</g:link>
-                    <g:link action="showConcours" id="4">Jeux Concours</g:link>
-                    <g:link action="showOutils" id="5">Outils</g:link>
-                </fieldset>
-			</g:form>
 			<h1><g:message code="${categorieInstance?.nomCategorie}" /></h1>
 			<div id="someText">
 				<p>
