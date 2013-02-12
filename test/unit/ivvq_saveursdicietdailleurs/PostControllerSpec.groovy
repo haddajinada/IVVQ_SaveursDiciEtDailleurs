@@ -19,12 +19,21 @@ import spock.lang.Specification
 @TestFor(PostController)
 class PostControllerSpec extends Specification {
 
-	def setup() {
+def mockI18N = { controller ->
+		controller.metaClass.message = { Map map ->
+			return "I18N message ($map)"
+		}
 	}
+	
+def "index action"() {
+		setup:
+		
+		when:
+		controller.index()
+		
+		then:
+		response.redirectedUrl == "/post/list"
+}
 
-	def cleanup() {
-	}
 
-	void "test something"() {
-	}
 }
