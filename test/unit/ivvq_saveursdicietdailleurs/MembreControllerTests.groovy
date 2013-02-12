@@ -20,12 +20,13 @@ class MembreControllerTests {
     def populateValidParams(params) {
         assert params != null
         // Populate valid properties like...
-        params["pseudo"] = "Mi"
-		params["mdp"] = "mi0001"
-		params["prenom"] = "mel"
-		params["nom"] = "mel"
+        params["pseudo"] = "Pseudo du membre"
+		params["mdp"] = "Mot de passe"
+		params["prenom"] = "prenom membre"
+		params["nom"] = "nom du membre"
 		params["adresse_mail"] = "mail@gmail.com"
-		params["role"] = "membre"
+		params["role"] = "Membre"
+		params["posts"] = new Post(intitule:"Intitule du post", message:"Message post")
     }
 
     void testIndex() {
@@ -48,6 +49,8 @@ class MembreControllerTests {
 	}
 	
 	void testSave() {
+		params.flush = true
+		
         controller.save()
 
         assert model.membreInstance != null
@@ -63,7 +66,7 @@ class MembreControllerTests {
         assert Membre.count() == 1
     }
 
-    void testShow() {
+    void testShow() {		
         controller.show()
 
         assert flash.message != null
