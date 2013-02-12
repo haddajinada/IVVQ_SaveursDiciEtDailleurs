@@ -20,17 +20,12 @@ You should have received a copy of the GNU Affero General Public License along w
         <div class="nav" role="navigation">
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
+                <li><g:link action="showRecettes" id="1">Recettes</g:link></li>
+                <li><g:link action="showDefis" id="4">Défis</g:link></li>
             </ul>
         </div>
         <div id="show-recettes" class="content scaffold-show" role="main">
            <g:form>
-				<fieldset class="buttons">
-					<g:link action="showRecettes" id="1">Recettes</g:link>
-					<g:link action="showPhotos" id="2">Photos</g:link>
-					<g:link action="showVideos" id="3">Videos</g:link>
-                    <g:link action="showConcours" id="4">Jeux Concours</g:link>
-                    <g:link action="showOutils" id="5">Outils</g:link>
-                </fieldset>
                 <fieldset>
                 	<h1><g:message code="${categorieInstance?.nomCategorie}" /></h1>
                 	<h2><g:message code="Quelques Recettes"/></h2>

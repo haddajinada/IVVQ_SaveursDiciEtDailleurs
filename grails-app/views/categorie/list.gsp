@@ -38,8 +38,8 @@ You should have received a copy of the GNU Affero General Public License along w
 				<tbody>
 				<g:each in="${categorieInstanceList}" status="i" var="categorieInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-						<td><g:link action="show" id="${categorieInstance.id}">${fieldValue(bean: categorieInstance, field: "idCategorie")}</g:link></td>
-						<td>${fieldValue(bean: categorieInstance, field: "nomCategorie")}</td>
+						<td><g:link action="show" id="${categorieInstance.id}">${fieldValue(bean: categorieInstance, field: "id")}</g:link></td>
+						<td><g:link action="show" id="${categorieInstance.id}">${fieldValue(bean: categorieInstance, field: "nomCategorie")}</g:link></td>
 					</tr>
 				</g:each>
 				</tbody>

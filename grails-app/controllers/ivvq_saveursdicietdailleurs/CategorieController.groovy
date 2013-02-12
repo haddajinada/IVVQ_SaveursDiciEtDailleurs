@@ -120,11 +120,6 @@ class CategorieController {
 //		}
 	}
 	
-	def showPhotos = {}
+	def showDefis = {}
 	
-	def showVideos = {}
-	
-	def showConcours = {}
-	
-	def showOutils = {}
 }
