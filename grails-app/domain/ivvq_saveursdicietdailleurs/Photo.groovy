@@ -13,7 +13,7 @@ package ivvq_saveursdicietdailleurs
 class Photo {
 	String recette
 	byte[] image
-	static belongsTo = [post : Post]
+	//static belongsTo = [post : Post]
 
 	
 	static constraints = {

@@ -1,13 +1,4 @@
-<!--
-Saveurs d’ici et d’ailleurs allows foodies to share recipes and cooking tips from around the globe.
-Copyright (C) 2012 Anna CEJALVO - Nada HADDAJI KFITA - Ahou Melaine KOFFI - Marième TOURE
 
-Saveurs d’ici et d’ailleurs is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-Saveurs d’ici et d’ailleurs is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License along with this program. If not, see ww.gnu.org/licenses/agpl-3.0.html.
--->
 <%@ page import="ivvq_saveursdicietdailleurs.Post" %>
 <!doctype html>
 <html>
@@ -32,15 +23,6 @@ You should have received a copy of the GNU Affero General Public License along w
 			</g:if>
 			<ol class="property-list post">
 			
-				<g:if test="${postInstance?.idPost}">
-				<li class="fieldcontain">
-					<span id="idPost-label" class="property-label"><g:message code="post.idPost.label" default="Id Post" /></span>
-					
-						<span class="property-value" aria-labelledby="idPost-label"><g:fieldValue bean="${postInstance}" field="idPost"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${postInstance?.intitule}">
 				<li class="fieldcontain">
 					<span id="intitule-label" class="property-label"><g:message code="post.intitule.label" default="Intitule" /></span>
@@ -55,6 +37,24 @@ You should have received a copy of the GNU Affero General Public License along w
 					<span id="message-label" class="property-label"><g:message code="post.message.label" default="Message" /></span>
 					
 						<span class="property-value" aria-labelledby="message-label"><g:fieldValue bean="${postInstance}" field="message"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.tof}">
+				<li class="fieldcontain">
+					<span id="tof-label" class="property-label"><g:message code="post.tof.label" default="Tof" /></span>
+					
+						<span class="property-value" aria-labelledby="tof-label"><g:link controller="photo" action="show" id="${postInstance?.tof?.id}">${postInstance?.tof?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${postInstance?.video}">
+				<li class="fieldcontain">
+					<span id="video-label" class="property-label"><g:message code="post.video.label" default="Video" /></span>
+					
+						<span class="property-value" aria-labelledby="video-label"><g:link controller="video" action="show" id="${postInstance?.video?.id}">${postInstance?.video?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

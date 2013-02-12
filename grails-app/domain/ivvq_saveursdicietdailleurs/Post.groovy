@@ -15,11 +15,15 @@ class Post {
 	String intitule
 	String message
 	Membre auteurPost
+	Photo tof
+	Video video
 	static hasMany = [commentaires : Commentaire]
 
 	static constraints = {
 		intitule blank : false, nullable : false
 		message blank : false, nullable : false
+		tof blank : true, nullable : true
+		video blank : true, nullable : true
 	}
 
 	String toString(){
