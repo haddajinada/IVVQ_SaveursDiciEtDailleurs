@@ -13,6 +13,14 @@ You should have received a copy of the GNU Affero General Public License along w
 	<head>
 		<meta name="layout" content="main" />
 		<title>Saveurs d'ici et d'ailleurs, bienvenue!</title>
+		
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'diapo.css')}" type="text/css" />
+ 
+        <!-- Javascript -->
+        <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> 
+        <script type="text/javascript" src="js/diaporama.js"></script>
+        <script type="text/javascript" src="js/diapo.js"></script>
+        
 		<style type="text/css" media="screen">
 		#status {
 			background-color: #E869AA;
@@ -141,6 +149,24 @@ You should have received a copy of the GNU Affero General Public License along w
 			<p>Et pour vous donner un avant goût de ce que vous pouvez trouver
 				ici, voici les dernières recettes postées par nos membres :</p>
 			</br>
+			
+			<ul class="diaporama">
+            	<li>
+	            	<img src="${resource(dir: 'images/ingredients', file: 'Ingredients.jpg')}" alt="Queenie's Killer Tomato Bagel Sandwich" title="Queenie's Killer Tomato Bagel Sandwich" style = "float: inherit;" width="620" height="235" />
+		            <h4>Queenie's Killer Tomato Bagel Sandwich</h4>
+	    		</li>
+            	<li><img src="${resource(dir: 'images/ingredients', file: 'Ingredients2.jpg')}" alt="Image 2" title="" width="620" height="235" />
+            		<h4>Queenie's Killer Tomato Bagel Sandwich</h4>
+            	</li>
+            	<li><img src="${resource(dir: 'images/ingredients', file: 'Ingredients3.gif')}" alt="Image 3" title="" width="620" height="235"/>
+            		<h4>Queenie's Killer Tomato Bagel Sandwich</h4>
+            	</li>
+            	<li><img src="${resource(dir: 'images/ingredients', file: 'Ingredients4.JPG')}" alt="Image 4" title="" width="620" height="235"/>
+            		<h4>Queenie's Killer Tomato Bagel Sandwich</h4>
+            	</li>
+            	
+	        </ul>
+	        	
 			<table>
 				<g:each in="${ivvq_saveursdicietdailleurs.Post.findAll(max:2)}" status="i" var="postInstance">
 					<tr>
