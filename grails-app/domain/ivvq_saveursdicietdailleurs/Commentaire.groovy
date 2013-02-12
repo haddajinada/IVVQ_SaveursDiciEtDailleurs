@@ -12,17 +12,15 @@ package ivvq_saveursdicietdailleurs
 
 class Commentaire {
 
-	//int idCommentaire
 	String corpsCommentaire
 	static belongsTo = [postCommentaire : Post]
 	
     static constraints = {
-		//idCommentaire blank : false,nullable : false, unique : true
 		corpsCommentaire blank : false, nullable : false
     }
 	
 	String toString(){
-		return "$corpsCommentaire"//$idCommentaire  $postCommentaire
+		return "$corpsCommentaire"
 	}
 }
 
