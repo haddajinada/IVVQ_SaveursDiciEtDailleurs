@@ -10,8 +10,6 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-
-
 import org.junit.*
 import grails.test.mixin.*
 
@@ -22,7 +20,7 @@ class PostControllerTests {
 
     def populateValidParams(params) {
       assert params != null
-      // TODO: Populate valid properties like...
+      //Populate valid properties like...
 	  params["intitule"] = "intitule du premier post"
 	  params["message"] = "message du premier post"
 	  params["auteurPost"] = "auteur du premier post"
@@ -117,7 +115,7 @@ class PostControllerTests {
 
         // test invalid parameters in update
         params.id = post.id
-        //TODO: add invalid values to params object
+        //add invalid values to params object
 		params.intitule = ""
 		
         controller.update()

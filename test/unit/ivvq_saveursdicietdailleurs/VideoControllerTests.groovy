@@ -10,8 +10,6 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
-
-
 import org.junit.*
 import grails.test.mixin.*
 
@@ -22,7 +20,7 @@ class VideoControllerTests {
 
     def populateValidParams(params) {
       assert params != null
-      // TODO: Populate valid properties like...
+      //Populate valid properties like...
       params["titreRecette"] = "recette de nada"
 	  params["keyVideoYoutube"] = "xnT2HR0RQnA"
 	  params["recette"] = "une bonne recette"
@@ -117,7 +115,7 @@ class VideoControllerTests {
 
         // test invalid parameters in update
         params.id = video.id
-        //TODO: add invalid values to params object
+        //add invalid values to params object
 		params.titreRecette = ""
 		
         controller.update()

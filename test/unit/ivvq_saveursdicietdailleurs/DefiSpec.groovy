@@ -11,12 +11,14 @@
 package ivvq_saveursdicietdailleurs
 
 import java.util.Date
-
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 import spock.lang.Unroll
-import static grails.test.MockUtils.*
 
+/**
+ * See the API for {@link grails.test.mixin.domain.DomainClassUnitTestMixin} for usage instructions
+ */
+@TestFor(Defi)
 class DefiSpec extends Specification {
 	void validateConstraints(obj, field, error) {
 		def validated = obj.validate()
@@ -28,49 +30,38 @@ class DefiSpec extends Specification {
 			assert !obj.errors[field]
 		}
 	}
-	
-	def "index action"() {
-		setup:
-		mockLogging(DefiController, true)
-		
-		when:
-		controller.index()
-		
-		then:
-		response.redirectedUrl == "/defi/list"
-	}
-	
+
 	def "intitule and description not blank"() {
 		setup:
 		mockDomain(Defi)
 		mockDomain(Categorie)
-		
+
 		when:
 		def defi=new Defi(intitule:intitule, description:"toto")
 		def defi2=new Defi(intitule:"toto", description:description, categorie: new Categorie(nomCategorie:"lol") , dateCreation:new Date(), dateLimite:new Date())
 		defi.validate()
 		defi2.validate()
-		
+
 		then:
 		defi.errors.hasFieldErrors("intitule")
 		defi2.errors.hasFieldErrors("description")
-		
+
 		where:
 		intitule=""
 		description=""
 	}
 
-@Unroll("test defi all constraints #field is #error using #val")
-def "test defi all constraints"() {
+	@Unroll("test defi all constraints #field is #error using #val")
+	def "test defi all constraints"() {
 		setup:
 		mockForConstraintsTests(Defi, [new Defi(intitule:'toto')])
-		
+
 		when:
 		def defi=new Defi("$field": val)		
-		
+
 		then:
 		validateConstraints(defi, field, error)
-		
+
 		where:
 		error	|field			|val
 		'blank'	|'intitule'		|''
@@ -78,43 +69,4 @@ def "test defi all constraints"() {
 		'valid'	|'intitule'		|'to'
 		'blank'	|'description'	|''
 	}
-	
-	def "find defi by description"() {
-		setup:
-		mockDomain(Defi)
-		mockDomain(Categorie)
-		
-		when:
-		new Defi(intitule:"lola", description:"oulala", categorie:new Categorie(nomCategorie:"categorie").save(), dateCreation:new Date(), dateLimite:new Date()).save()
-		
-		then:
-		Defi.findByDescription("oulala") != null
-	}
-	
-	def "find defi by intitule"() {
-		setup:
-		mockDomain(Defi)
-		mockDomain(Categorie)
-		
-		when:
-		Categorie categorie = new Categorie(nomCategorie:"categorie").save()
-		Defi defi = new Defi(intitule:"lola", description:"desc", categorie:categorie, dateCreation:new Date(), dateLimite:new Date()).save()
-		
-		then:
-		Defi.findByIntitule("lola") != null
-	}
-	
-	def "find categorie by intitule"() {
-		setup:
-		mockDomain(Defi)
-		mockDomain(Categorie)
-		
-		when:
-		Categorie categorie = new Categorie(nomCategorie:"categorie").save()
-		Defi defi = new Defi(intitule:"lola", description:"desc", categorie:categorie, dateCreation:new Date(), dateLimite:new Date()).save()
-		
-		then:
-		Categorie.findByIdCategorie("id") != null
-	}
 }
-

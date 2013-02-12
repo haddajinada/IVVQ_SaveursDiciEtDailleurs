@@ -9,9 +9,10 @@ class CommentaireServiceSpec extends IntegrationSpec {
 		expect:    
 		CommentaireService.createCommentaire(corps, post).hasErrors() == creationFailed    
 		
-		where:    corps     | post   | creationFailed    
-		          null      | null   |  true    
-				  "bill"    | null   |  false
+		where:    
+		corps     		| post   | creationFailed    
+		null      		| null   |  true    
+		"commentaire"   | null   |  false
 	}
 	
 	def "commentaire modification"() {
