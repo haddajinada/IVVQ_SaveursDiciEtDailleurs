@@ -47,13 +47,9 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-<<<<<<< HEAD
-        runtime 'mysql:mysql-connector-java:5.1.20' // à commenter sans l'utilisation de MYSQL _ANNA
-=======
         runtime 'mysql:mysql-connector-java:5.1.20'
 		//compile ":flash-player:1.4"
 		//build ":release:2.2.0" // c'est � propos de l'approche native concernant la gestion des d�pendances
->>>>>>> origin/dev
     }
 
     plugins {

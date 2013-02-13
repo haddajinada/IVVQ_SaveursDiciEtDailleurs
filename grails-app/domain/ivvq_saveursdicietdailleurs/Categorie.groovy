@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-package ivvq_saveursdicietdailleurs
-
-class Categorie {
-	String idCategorie
-	String nomCategorie
-
-    static constraints = {
-		idCategorie blank : false, unique : true
-		nomCategorie blank: false, unique: true
-=======
 /*******************************************************************************
  * Saveurs d’ici et d’ailleurs allows foodies to share recipes and cooking tips from around the globe.
  * Copyright (C) 2012 Anna CEJALVO - Nada HADDAJI KFITA - Ahou Melaine KOFFI - Marième TOURE
@@ -29,6 +18,5 @@ class Categorie {
 	
     static constraints = {
 		nomCategorie blank: false, nullable: false, unique: true
->>>>>>> origin/dev
     }
 }
