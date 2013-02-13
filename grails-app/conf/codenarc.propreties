@@ -1,0 +1,6 @@
+codenarc.properties = {
+	  GrailsDomainHasEquals.enabled = false
+	  GrailsDomainHasToString.enabled = false
+	  EmptyMethod.enabled = false
+	  
+}
