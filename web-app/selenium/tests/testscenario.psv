@@ -1,0 +1,6 @@
+open|/IVVQ_SaveursDiciEtDailleurs
+clickAndWait|link=login
+type|pseudo|lili
+type|mdp|lilili
+clickAndWait|link=login
+
