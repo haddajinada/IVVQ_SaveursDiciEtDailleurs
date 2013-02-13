@@ -10,6 +10,7 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
+import grails.test.mixin.*
 import spock.lang.Specification
 
 /**

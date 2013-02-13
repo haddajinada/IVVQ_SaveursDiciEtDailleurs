@@ -10,6 +10,8 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
+import grails.test.mixin.*
+
 @TestFor(CommentaireController)
 @Mock(Commentaire)
 class CommentaireControllerTests {
