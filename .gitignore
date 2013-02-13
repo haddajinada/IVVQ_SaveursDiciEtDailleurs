@@ -1,5 +1,7 @@
 *.class
 target*
+target-eclipse*
 *.classpath
 *.settings
 *.project
+web-app/selenium*
