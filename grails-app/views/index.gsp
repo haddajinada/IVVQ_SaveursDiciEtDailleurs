@@ -176,18 +176,7 @@ You should have received a copy of the GNU Affero General Public License along w
             	<li><img src="${resource(dir: 'images/ingredients', file: 'Ingredients4.JPG')}" alt="Image 4" title="" width="620" height="235"/>
             		<h4>Queenie's Killer Tomato Bagel Sandwich</h4>
             	</li>
-            	
 	        </ul>
-			<table>
-				<g:each in="${ivvq_saveursdicietdailleurs.Post.findAll(max:2)}" status="i" var="postInstance">
-					<tr>
-						<td>${postInstance?.intitule}</td>
-						<td>${postInstance?.message}</td>
-						<td>${postInstance?.auteurPost?.nom}</td>
-					</tr>
-				</g:each>
-			</table>
-			
 		</div>
 	</body>
 </html>

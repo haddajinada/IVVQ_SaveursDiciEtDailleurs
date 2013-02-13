@@ -4,4 +4,4 @@ target-eclipse*
 *.classpath
 *.settings
 *.project
-web-app/selenium*
+web-app/selenium/core*

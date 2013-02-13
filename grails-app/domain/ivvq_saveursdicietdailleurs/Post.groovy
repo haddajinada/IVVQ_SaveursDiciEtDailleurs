@@ -11,7 +11,6 @@
 package ivvq_saveursdicietdailleurs
 
 class Post {
-
 	String intitule
 	String message
 	Membre auteurPost

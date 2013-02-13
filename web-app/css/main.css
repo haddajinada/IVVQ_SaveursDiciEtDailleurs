@@ -52,12 +52,11 @@ body {
 	   -moz-box-shadow: 0 0 0.3em #7E3698;
 	-webkit-box-shadow: 0 0 0.3em #7E3698;
 	        box-shadow: 0 0 0.3em #7E3698;
-	background:url(../images/TravauxEncours2a.jpg) bottom right no-repeat #fff;
+	background:#fff;
 	
 }
 
 #saveursBanner {
-	position: relative;
 	background-color: #880045;
 	color: #F9D0E5;
 	font-size: 400%;
