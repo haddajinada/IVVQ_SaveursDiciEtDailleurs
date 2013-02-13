@@ -6,10 +6,18 @@ class PhotoController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
-    def index() {
-        redirect(action: "list", params: params)
-    }
-
+   def beforeInterceptor = [action:this.&auth]
+	
+	def index() {
+		redirect(action: "list", params: params)
+	}
+	
+	def auth() {
+		if(!session.user) {
+			redirect(controller:"Membre", action:"login")
+			return false
+		}
+	}
     def list() {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [photoInstanceList: Photo.list(params), photoInstanceTotal: Photo.count()]
