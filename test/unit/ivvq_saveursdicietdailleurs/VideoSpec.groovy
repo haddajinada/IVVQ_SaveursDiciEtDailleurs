@@ -49,9 +49,7 @@ class VideoSpec extends Specification {
 	@Unroll("test video all constraints #field is #error using #val")
 	def "test video all constraints"() {
 		setup:
-		mockForConstraintsTests(Video, [
-			new Video(titreRecette:'recettttt')
-		])
+		mockForConstraintsTests(Video)
 
 		when:
 		def video = new Video("$field": val)
