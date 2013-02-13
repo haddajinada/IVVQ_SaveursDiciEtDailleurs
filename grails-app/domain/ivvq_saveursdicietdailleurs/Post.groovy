@@ -10,14 +10,61 @@
  ******************************************************************************/
 package ivvq_saveursdicietdailleurs
 
+/**
+* Post est la classe représentant une recette de cuisine.
+* 
+* Un Post est caractérisé par les informations suivantes :
+* 
+* Un "intitule" intitulé de la recette.
+* Un "message" le contenu de la recette.
+* Un "auteurPost" qui doit être un membre.
+* Un "tof" qui correspond à une photo de la recette, suceptible d'être null.
+* Un "video" qui correspond à une video de la recette, suceptible d'être null.
+* Des "commentaires" des visiteurs sur la recette.
+* 
+* 
+*
+* @author nada
+* @version 1.0
+*/
 class Post {
+	/**
+	 * L'intitulé du Post.
+	 *
+	 */
 	String intitule
+	/**
+	 * La description du Post.
+	 *
+	 */
 	String message
+	/**
+	 * L'auteur du Post.
+	 *
+	 */
 	Membre auteurPost
+	/**
+	 * La photo du Post.
+	 *
+	 * @see Photo
+	 */
 	Photo tof
+	/**
+	 * La video associé au Post.
+	 *
+	 * @see Video
+	 */
 	Video video
+	/**
+	 * Les commentaire associés au Post.
+	 *
+	 */
 	static hasMany = [commentaires : Commentaire]
-
+	/**
+	 * Les contraintes à respecter pour créer un Post :
+	 * tous les attributs de Post doivent être precisés sauf la photo et la video.
+	 *
+	 */
 	static constraints = {
 		intitule blank : false, nullable : false
 		message blank : false, nullable : false
@@ -25,6 +72,9 @@ class Post {
 		video blank : true, nullable : true
 	}
 
+	/**
+	 * @return l'intitulé de la recette
+	 */
 	String toString(){
 		return " $intitule"//$idPost $message
 	}
