@@ -7,8 +7,8 @@ class PostService {
 		 * @param String intitule
 		 * @param String message
 		 * @param Membre auteurPost   **/
-	Post createPost(String intitule, String message, Membre membre = null) {
-		 Post pp = new Post(intitule: intitule, message: message, auteurPost: membre)   
+	Post createPost(String intitule, String message, Membre membre = null, Photo tof = null, Video video = null) {
+		 Post pp = new Post(intitule: intitule, message: message, auteurPost: membre, tof: tof, video: video)   
 		 pp.save()   
 		 pp
 	}

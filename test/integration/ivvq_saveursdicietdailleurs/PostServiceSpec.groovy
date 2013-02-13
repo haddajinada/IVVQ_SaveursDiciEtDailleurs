@@ -8,12 +8,12 @@ class PostServiceSpec extends IntegrationSpec {
 
 	def "post creation"() {
 		expect:    
-		PostService.createPost(intitule, message, membre).hasErrors() == creationFailed    
+		PostService.createPost(intitule, message, membre, tof, video).hasErrors() == creationFailed    
 		
-		where:    intitule  | message   | membre  | creationFailed    
-		          null      | null      | null    | true
-				  "bill"    | null      | null    | false
-				  null      | "hjhj"    | null    | false
+		where:    intitule  | message   | membre  | tof     | video   | creationFailed    
+		          ""        | "kh"      | null    | null    | null    | true
+				  "bill"    | "jjj"     | null    | null    | null    | false
+				  ""        | "hjhj"    | null    | null    | null    | false
 	}
 	
 	def "post modification"() {

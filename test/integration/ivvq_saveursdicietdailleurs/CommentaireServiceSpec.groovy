@@ -7,18 +7,18 @@ class CommentaireServiceSpec extends IntegrationSpec {
 	def comService  
 	def "commentaire creation"() {
 		expect:    
-		CommentaireService.createCommentaire(corps, post).hasErrors() == creationFailed    
+		CommentaireService.createCommentaire(corps).hasErrors() == creationFailed    
 		
 		where:    
-		corps     		| post   | creationFailed    
-		null      		| null   |  true    
-		"commentaire"   | null   |  false
+		corps     	    | creationFailed    
+		""      	    |  true    
+		"commentaire"   |  false
 	}
 	
-	def "commentaire modification"() {
-		expect:
-		CommentaireService.updateCorpsCommentaire(1, corps)
-		
-		where:    corps = "com1"
-	}
+//	def "commentaire modification"() {
+//		expect:
+//		CommentaireService.updateCorpsCommentaire(1, corps)
+//		
+//		where:    corps = "com1"
+//	}
 }

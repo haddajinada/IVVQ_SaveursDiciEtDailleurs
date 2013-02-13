@@ -16,7 +16,8 @@ class Photo {
 
 	
 	static constraints = {
-		image nullable:true, size: 0..10000000 // maxsize:1024*1024*2
+		recette blank : false
+		image nullable : true, size: 0..10000000
 	}
 	
 	String toString() {
