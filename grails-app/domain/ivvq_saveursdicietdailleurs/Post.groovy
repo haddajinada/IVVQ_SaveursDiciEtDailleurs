@@ -28,6 +28,7 @@ package ivvq_saveursdicietdailleurs
 * @version 1.0
 */
 class Post {
+
 	/**
 	* L'intitulé du Post.
 	*

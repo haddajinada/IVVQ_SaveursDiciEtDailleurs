@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource name="jdbc/ivvq_saveursdicietdailleurs" auth="Container"
+	type="javax.sql.DataSource">
+	<param name="username" value="saveursdici" />
+	<param name="password" value="saveurs1" />
+	<param name="url" value="jdbc:cloudbees://ivvq_saveursdicietdailleurs" />
+</resource>

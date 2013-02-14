@@ -21,8 +21,8 @@ You should have received a copy of the GNU Affero General Public License along w
 		<div class="nav" role="navigation">
 			<ul>
 				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="list" action="list"style="display:${(session.user.pseudo) == "admin" ? 'inline' : 'none'}"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
+				<li><g:link class="create" action="create" style="display:${(session.user.pseudo) == "admin" ? 'inline' : 'none'}"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 			</ul>
 		</div>
 		<div id="show-membre" class="content scaffold-show" role="main">

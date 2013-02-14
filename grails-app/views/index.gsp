@@ -107,20 +107,21 @@ You should have received a copy of the GNU Affero General Public License along w
 	<body>
 		<div class="nav" role="navigation">
 			<ul>
-	
-				<li><g:link
-						class="${(session.user) == null ? 'login' : 'logout'}"
-						action="${(session.user) == null ? 'login' : 'logout'}"
-						controller="Membre">
-						${(session.user) == null ? 'Se connecter' : 'Se déconnecter'}
-					</g:link></li>
-				<li><g:link class="create" controller="Membre" action="create">S'inscrire</g:link></li>
+					<li><g:link
+							class="${(session.user) == null ? 'login' : 'logout'}"
+							action="${(session.user) == null ? 'login' : 'logout'}"
+							controller="Membre">
+							${(session.user) == null ? 'Se connecter' : 'Se déconnecter'}
+						</g:link></li>
+					<li><g:link class="create" controller="Membre" action="create"
+							style="visibility:${(session.user) != null ? 'hidden' : 'visible'}">
+							S'inscrire</g:link></li>
 				<g:if test="${(session.user)}">
 					<li><g:link class="show" controller="Membre"
-							id="${(session.user.id)}"
-							style="visibility:${(session.user) == null ? 'hidden' : 'visible'}">
-							${(session.user.nom)}
-						</g:link></li>
+								id="${(session.user.id)}"
+								style="visibility:${(session.user) == null ? 'hidden' : 'visible'}">
+								Bonjour, ${(session.user.nom)} !!
+					</g:link></li>
 				</g:if>
 			</ul>
 		</div>
@@ -129,9 +130,10 @@ You should have received a copy of the GNU Affero General Public License along w
 		<div id="status" role="complementary">
 			<h2>MENU</h2>
 			<ul>
-				<li class="controller"><g:link controller="Membre">Membres</g:link></li>
+				<g:if test="${(session.user)}">
+					<li class="controller"><g:link controller="Membre" style="display:${(session.user.role) == "admin" ? 'inline' : 'none'}">Membres</g:link></li>
+				</g:if>
 				<li class="controller"><g:link controller="Defi">Défis</g:link></li>
-				<li class="controller"><g:link controller="Post">Posts</g:link></li>
 				<li class="controller"><g:link controller="Photo">Photos</g:link></li>
 				<li class="controller"><g:link controller="Video">Videos</g:link></li>
 				<li class="controller"><g:link controller="Categorie">Catégories</g:link></li>
@@ -176,18 +178,7 @@ You should have received a copy of the GNU Affero General Public License along w
             	<li><img src="${resource(dir: 'images/ingredients', file: 'Ingredients4.JPG')}" alt="Image 4" title="" width="620" height="235"/>
             		<h4>Queenie's Killer Tomato Bagel Sandwich</h4>
             	</li>
-            	
 	        </ul>
-			<table>
-				<g:each in="${ivvq_saveursdicietdailleurs.Post.findAll(max:2)}" status="i" var="postInstance">
-					<tr>
-						<td>${postInstance?.intitule}</td>
-						<td>${postInstance?.message}</td>
-						<td>${postInstance?.auteurPost?.nom}</td>
-					</tr>
-				</g:each>
-			</table>
-			
 		</div>
 	</body>
 </html>
