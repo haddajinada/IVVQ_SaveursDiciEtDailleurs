@@ -10,9 +10,7 @@
  ******************************************************************************/
 dataSource {
     pooled = true
-    driverClassName = "com.mysql.jdbc.Driver"
-    username = "root"
-    password = ""
+   
 }
 hibernate {
 	cache.use_second_level_cache=true
@@ -23,6 +21,9 @@ hibernate {
 environments {
 	development {
 		dataSource {
+			driverClassName = "com.mysql.jdbc.Driver"
+			username = "root"
+			password = ""
 			dbCreate = "update" // one of 'create', 'create-drop','update'
 			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
 		}
@@ -36,7 +37,11 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "update"
-			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+			url = "jdbc:cloudbees://ivvq_saveursdicietdailleurs"
+			username = "saveursdici"
+			password = "saveurs1"
+			
+		
 		}
 	}
 }

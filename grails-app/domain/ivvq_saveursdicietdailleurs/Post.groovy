@@ -28,7 +28,6 @@ package ivvq_saveursdicietdailleurs
 * @version 1.0
 */
 class Post {
-<<<<<<< HEAD
 
 	/**
 	* L'intitulé du Post.
@@ -61,39 +60,6 @@ class Post {
 	* Les commentaire associés au Post.
 	*
 	*/
-=======
-	/**
-	 * L'intitulé du Post.
-	 *
-	 */
-	String intitule
-	/**
-	 * La description du Post.
-	 *
-	 */
-	String message
-	/**
-	 * L'auteur du Post.
-	 *
-	 */
-	Membre auteurPost
-	/**
-	 * La photo du Post.
-	 *
-	 * @see Photo
-	 */
-	Photo tof
-	/**
-	 * La video associé au Post.
-	 *
-	 * @see Video
-	 */
-	Video video
-	/**
-	 * Les commentaire associés au Post.
-	 *
-	 */
->>>>>>> 092bb22d9052c1f7ab395839c1f68620c423d63b
 	static hasMany = [commentaires : Commentaire]
 	/**
 	 * Les contraintes à respecter pour créer un Post :
