@@ -21,19 +21,23 @@ hibernate {
 environments {
 	development {
 		dataSource {
-//			driverClassName = "com.mysql.jdbc.Driver"
+			driverClassName = "com.mysql.jdbc.Driver"
 //			username = "root"
 //			password = ""
 //			dbCreate = "update" // one of 'create', 'create-drop','update'
 //			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
-	
-			
+			dbCreate = "update"
+			url = "jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com/ivvq_saveursdicietdailleurs"
+			username = "saveursdici"
+			password = "saveurs1"
 		}
 	}
 	test {
 		dataSource {
 			dbCreate = "update"
-			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+			url = "jdbc:mysql://ec2-23-21-211-172.compute-1.amazonaws.com/ivvq_saveursdicietdailleurs"
+			username = "saveursdici"
+			password = "saveurs1"
 		}
 	}
 	production {
