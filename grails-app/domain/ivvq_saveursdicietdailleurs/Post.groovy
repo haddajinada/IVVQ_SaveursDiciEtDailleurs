@@ -62,17 +62,17 @@ class Post {
 	*/
 	static hasMany = [commentaires : Commentaire]
 	/**
-	* Les contraintes à respecter pour créer un Post : 
-	* tous les attributs de Post doivent être precisés sauf la photo et la video.
-	*
-	*/
+	 * Les contraintes à respecter pour créer un Post :
+	 * tous les attributs de Post doivent être precisés sauf la photo et la video.
+	 *
+	 */
 	static constraints = {
 		intitule blank : false, nullable : false
 		message blank : false, nullable : false
 		tof blank : true, nullable : true
 		video blank : true, nullable : true
 	}
-	
+
 	/**
 	 * @return l'intitulé de la recette
 	 */
