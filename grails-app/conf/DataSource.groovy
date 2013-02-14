@@ -21,11 +21,13 @@ hibernate {
 environments {
 	development {
 		dataSource {
-			driverClassName = "com.mysql.jdbc.Driver"
-			username = "root"
-			password = ""
-			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+//			driverClassName = "com.mysql.jdbc.Driver"
+//			username = "root"
+//			password = ""
+//			dbCreate = "update" // one of 'create', 'create-drop','update'
+//			url = "jdbc:mysql://localhost/ivvq_saveursdicietdailleurs"
+	
+			
 		}
 	}
 	test {
@@ -37,10 +39,20 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "update"
+			driverClassName = "com.cloudbees.jdbc.Driver"
 			url = "jdbc:cloudbees://ivvq_saveursdicietdailleurs"
 			username = "saveursdici"
 			password = "saveurs1"
-			
+			properties {
+				maxActive = -1
+				minEvictableIdleTimeMillis=1800000
+				timeBetweenEvictionRunsMillis=1800000
+				numTestsPerEvictionRun=3
+				testOnBorrow=true
+				testWhileIdle=true
+				testOnReturn=true
+				validationQuery="SELECT 1"
+			 }
 		
 		}
 	}
